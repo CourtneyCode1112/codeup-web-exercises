@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register With Us</title>
+</head>
+<body>
+<!--<form method="POST" action="https://request-inspector.glitch.me/">-->
+<form method="POST" action="https://www.elformo.com/forms/2e63bf8d-5727-4bb6-9fdc-1e2f997b68e8">
+<section>
+    <h3>User Login</h3>
+        <label for="email">Email Address:</label>
+        <input type="text" id="email" name="email" placeholder="Enter your email address">
+        <br>
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password">
+</section>
+<br>
+<section>
+    <label for="bio">Bio:</label>
+    <textarea placeholder="Enter a short bio here" name="bio" id="bio" rows="4" cols="22"></textarea>
+</section>
+<section> <!--Radio = one selection-->
+    <h3>How did you hear about us?</h3>
+    <label for="billboard">Billboard
+        <input id="billboard" type="radio" name="hear_how" value="billboard">
+    </label>
+
+    <label for="radio_advertisement">Radio Advertisement
+        <input id="radio_advertisement" type="radio" name="hear_how" value="radio_advertisement">
+    </label>
+
+    <label for="internet_advertisement">Internet Advertisement
+        <input id="internet_advertisement" type="radio" name="hear_how" value="internet_advertisement">
+    </label>
+
+    <label for="other">Other
+        <input id="other" type="radio" name="hear_how" value="other">
+    </label>
+</section>
+<section> <!--Checkbox = multiple selection-->
+    <h3>Which services are you interested in?</h3>
+    <label for="digital">Digital Content
+        <input id="digital" type="checkbox" name="interested" value="digital">
+    </label>
+
+    <label for="printed">Printed Content
+        <input id="printed" type="checkbox" name="interested" value="printed">
+    </label>
+
+    <label for="television">Television Content
+        <input id="television" type="checkbox" name="interested" value="television">
+    </label>
+
+    <label for="other">Other
+        <input id="other" type="checkbox" name="interested" value="other">
+    </label>
+</section>
+<section> <!-- Select = one selection through dropdown menu-->
+    <h3>What browser are you using?</h3>
+    <label for="browser">
+    <select name="browser" id="browser">
+        <option value="chrome">Google Chrome</option>
+        <option value="explorer">Internet Explorer</option>
+        <option value="safari">Safari</option>
+    </select>
+    </label>
+</section>
+<br>
+<button type="submit">Submit the form</button>
+</form><br>
+</body>
+</html>
