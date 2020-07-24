@@ -1,3 +1,107 @@
 .fancy-header {
-    color:purple;
+    color:white;
+    text-decoration: underline;
+    text-align: center;
+}
+.motto {
+    text-align: center;
+    color: white;
+}
+
+h1,h2 {
+    color: darkblue;
+    text-decoration: underline;
+}
+
+header {
+    background-image: url("../Img/header-background-2.jpg");
+    background-attachment: fixed;
+}
+
+body {
+    background-image: url("../Img/grey_cement_back.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    font-family: "Times New Roman", Times, Serif;
+    background-color: darkgray;
+}
+
+.comp_info {
+    list-style: none;
+    padding-left: 0;
+}
+.comp_info li,ol{
+    position: relative;
+    padding-left: 20px;
+}
+.comp_info li:before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    background-image: url("../Img/red_bullet.png");
+    background-size: cover;
+    background-position: center;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#product_info {
+    text-align: left;
+    border: 1px solid black;
+}
+
+th, td {
+    border: 1px solid black;
+}
+
+th, tr {
+    width: 140px;
+    height: 30px;
+}
+
+a:link {
+    color:blue;
+}
+
+a:visited {
+    color:black;
+}
+
+a:hover {
+    color:red;
+}
+
+a:active {
+    color:green;
+}
+
+.table_info:hover {
+    color: white;
+    background-color: black;
+}
+
+.pics:hover
+{
+    opacity: 0.3;
+    filter: alpha(opacity=30);
+}
+
+h2 {
+    font-family: 'Julius Sans One', sans-serif;
+}
+
+ul>li:hover {
+    color: darkred;
+    font-size: 40px;
+}
+
+ol li:hover {
+    color: #204051;
+    text-decoration: underline;
+}
+
+#product_info td,th {
+    padding-left: 0.2rem;
 }
