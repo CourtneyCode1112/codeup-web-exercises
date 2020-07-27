@@ -74,12 +74,11 @@ fieldset {
     /* See the example at: https://developer.mozilla.org/en-US/docs/Web/CSS/calc */
     /* HINT: Calculate based on the padding of the `.btn` class */
     /* HINT: Examples are available at: https://glitch.com/~input-button-width */
-    width: 100%;
     padding-top: 4px;
     padding-bottom: 4px;
     margin-top: .5em;
     margin-bottom: .5em;
-    width: calc(100% - 5px);
+    width: calc(100% - 4px);
 }
 
 
