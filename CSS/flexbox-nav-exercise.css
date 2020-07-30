@@ -8,25 +8,25 @@ body {
 
 nav {
     background: #c4c2c2;
-    width: 100%;
-    height: 4em;
+    width: 100vw;
+    height: 5em;
 }
 
-ul {
+.nav_list {
     list-style: none;
     padding: 0;
     margin: 0;
-    height: 4em;
+    height: 5em;
     display: flex; /* made unordered list a flex container */
     flex-direction: row;
     position: relative;
     align-items: center;
+    font-family: 'Work Sans', sans-serif;
 }
 
 nav a {
     text-decoration: none;
     color: black;
-    font-family: 'Work Sans', sans-serif;
     display: inline-block; /* inline-block to increase clickable area beyond the text */
     padding: 0 1em; /* increases clickable area of anchor tags on all sides by 1em */
 }
@@ -37,7 +37,7 @@ nav a:hover {
 
 nav ul li:nth-child(6) {
     /*
-        this allows the last flex item to be right justified
+        this allows the 6th ul flex item to be right justified
         by filling remaining space to the left of the flex item with margin
     */
     margin-left: auto;
@@ -50,5 +50,97 @@ nav ul li:nth-child(6) {
     position: absolute;
     left: 50%;
     margin-left: -103.5px;
+}
 
+/* Footer section */
+footer {
+    background: #c4c2c2;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+.container {
+    min-width: 768px;
+    width: 95%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+footer h1 {
+    margin: 0;
+    font-weight: bolder;
+    text-align: center;
+    font-size: 2em;
+}
+h5 {
+    color: white;
+    font-weight: 200;
+}
+footer a {
+    color: white;
+    text-decoration: none;
+}
+footer .icon-wrapper:hover,
+footer .top-footer a:hover,
+footer .bottom-footer a:hover {
+    color: blue;
+}
+footer ul {
+    list-style: none;
+    margin: 0;
+    padding: 1em 0;
+}
+footer .container {
+    padding: 1.5em 0;
+    height: 18em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.icon-wrapper {
+    border: 2px solid grey;
+    border-radius: 2.4em;
+    height: 2.4em;
+    width: 2.4em;
+    display: flex;
+    margin-bottom: 1em;
+}
+.icon-wrapper i {
+    margin: auto;
+}
+.social-media-links {
+    display: flex;
+}
+footer .top-footer a {
+    text-transform: uppercase;
+    font-weight: 200;
+}
+
+footer .bottom-footer a {
+    margin: .3em;
+}
+.line {
+    width: 100%;
+    height: 1px;
+    background: grey;
+}
+.top-footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.number_add {
+    text-align: center;
+}
+
+.bf_bar_info {
+    display: flex;
+    font-family: 'Work Sans', sans-serif;
+}
+
+.bottom-footer ul li:nth-child(6) {
+    margin-left: auto;
 }
