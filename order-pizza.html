@@ -56,28 +56,28 @@
     <div class="jumbotron jumbotron-fluid p-0 m-0 d-none d-sm-block">
         <div class="container-fluid m-0 p-0">
             <h1 class="pizza_header">Welcome to Pizza World!</h1>
-            <img src="Img/pizza_jumbo.png" class="img-fluid container-fluid p-0" alt="Responsive image">
+            <img src="Img/pizza_jumbo.png" class="img-fluid container-fluid p-0" alt="Jumbo-pizza-picture">
         </div>
     </div>
     <!-- END OF JUMBOTRON -->
     <!-- START OF BUILD -->
-    <h2 class="lead my-3">Build your own pizza!</h2>
+    <h2 class="lead my-4">Build your own pizza!</h2>
     <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item">
-            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true"><span class="badge badge-pill badge-secondary mr-1">1</span>Size and Crust</a>
+            <a class="nav-link active" id="sizecrust-tab" data-toggle="tab" href="#sizecrust" role="tab" aria-controls="sizecrust" aria-selected="true"><span class="badge badge-pill badge-secondary mr-1">1</span>Size and Crust</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false"><span class="badge badge-pill badge-secondary mr-1">2</span>Cheese and Sauce</a>
+            <a class="nav-link" id="cheesesauce-tab" data-toggle="tab" href="#cheesesauce" role="tab" aria-controls="cheesesauce" aria-selected="false"><span class="badge badge-pill badge-secondary mr-1">2</span>Cheese and Sauce</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false"><span class="badge badge-pill badge-secondary mr-1">3</span>Toppings</a>
+            <a class="nav-link" id="toppings-tab" data-toggle="tab" href="#toppings" role="tab" aria-controls="toppings" aria-selected="false"><span class="badge badge-pill badge-secondary mr-1">3</span>Toppings</a>
         </li>
     </ul>
-    <div class="tab-content" id="myTabContent">
+    <div class="tab-content mb-4" id="myTabContent">
         <!--size and crust tab-->
-        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+        <div class="tab-pane fade show active" id="sizecrust" role="tabpanel" aria-labelledby="sizecrust-tab">
             <section class="tab-content" id="myTabContent1">
-                <div class="tab-pane fade show active h-75S" role="tabpanel" aria-labelledby="size-crust-tab">
+                <div class="tab-pane fade show active h-75S" role="tabpanel" aria-labelledby="sizecrust-tab">
                     <!--start size and crust tab -->
                     <!--1st size and crust option-->
                     <div class="card">
@@ -89,12 +89,12 @@
                                 </div>
                                 <ul class="list-group list-group-flush">
                                     <li class="list-group-item">Garlic seasoned crust with a rich, buttery taste.</li>
-                                    <li class="list-group-item"><input class="radio_button" type="radio"
-                                                                       aria-label="Radio button for following text input">Small
+                                    <li class="list-group-item"><input class="radio_button" type="radio" value="Small"
+                                                                       aria-label="Radio button garlic pizza size">Small
                                         (10")
                                     </li>
-                                    <li class="list-group-item"><input class="radio_button" type="radio"
-                                                                       aria-label="Radio button for following text input">Medium
+                                    <li class="list-group-item"><input class="radio_button" type="radio" value="medium"
+                                                                       aria-label="Radio button for garlic pizza size">Medium
                                         (12")
                                     </li>
                                 </ul>
@@ -108,12 +108,12 @@
                                 </div>
                                 <ul class="list-group list-group-flush">
                                     <li class="list-group-item">Thin enough for optimum crispy to crunchy ratio.</li>
-                                    <li class="list-group-item"><input class="radio_button" type="radio"
-                                                                       aria-label="Radio button for following text input">Small
+                                    <li class="list-group-item"><input class="radio_button" type="radio" value="small"
+                                                                       aria-label="Radio button for crispy size">Small
                                         (10")
                                     </li>
-                                    <li class="list-group-item"><input class="radio_button" type="radio"
-                                                                       aria-label="Radio button for following text input">Medium
+                                    <li class="list-group-item"><input class="radio_button" type="radio" value="medium"
+                                                                       aria-label="Radio button for crispy size">Medium
                                         (12")
                                     </li>
                                 </ul>
@@ -128,9 +128,9 @@
         </div>
         <!--end of size and crust tab-->
         <!--start of cheese an sauce tab-->
-        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-            <section class="tab-content" id="myTabContent2">
-                <div class="tab-pane fade show active h-75S" role="tabpanel" aria-labelledby="size-crust-tab">
+        <div class="tab-pane fade" id="cheesesauce" role="tabpanel" aria-labelledby="cheesesauce-tab">
+            <section class="tab-content mb-4" id="myTabContent2">
+                <div class="tab-pane fade show active h-75S" role="tabpanel" aria-labelledby="cheesesauce-tab">
                     <!--start cheese and sauce tabs -->
                     <div class="card">
                         <h5 class="card-header bg-primary text-white">Choose Cheese and Sauce</h5>
@@ -141,7 +141,7 @@
                                     Cheese
                                 </div>
                                 <div class="form-group mx-4 my-3">
-                                    <label for="form-group" id="form-group">How Much?</label>
+                                    <label for="cheese-form-group" id="cheese-form-group">How Much?</label>
                                     <select class="form-control">
                                         <option>Light</option>
                                         <option>Normal</option>
@@ -158,7 +158,7 @@
                                         Sauce
                                     </div>
                                     <div class="form-group2 mx-4 my-3">
-                                        <label for="form-group2" id="form-group2">What type?</label>
+                                        <label for="saucetype-group" id="saucetype-group">What type?</label>
                                         <select class="form-control">
                                             <option>Tomato Sauce</option>
                                             <option>Marinara Sauce</option>
@@ -167,7 +167,7 @@
                                         </select>
                                     </div>
                                     <div class="form-group3 mx-4 my-3">
-                                        <label for="form-group3" id="form-group3">How Much?</label>
+                                        <label for="sauce-amount-group" id="sauce-amount-group">How Much?</label>
                                         <select class="form-control">
                                             <option>Light</option>
                                             <option>Normal</option>
@@ -191,9 +191,9 @@
         </div>
         <!--End of cheese and sauce tab-->
         <!--Start of toppings tab-->
-        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-            <section class="tab-content" id="myTabContent3">
-                <div class="tab-pane fade show active h-75S" role="tabpanel" aria-labelledby="size-crust-tab">
+        <div class="tab-pane fade" id="toppings" role="tabpanel" aria-labelledby="toppings-tab">
+            <section class="tab-content mb-4" id="myTabContent3">
+                <div class="tab-pane fade show active h-75S" role="tabpanel" aria-labelledby="toppings-tab">
                     <!--start toppings tabs -->
                     <div class="card">
                         <h5 class="card-header bg-primary text-white">Choose Toppings</h5>
@@ -205,13 +205,13 @@
                                 </div>
                                 <ul class="list-group">
                                     <li class="list-group-item">
-                                        <input class="mr-2" type="checkbox" aria-label="Checkbox for following text input">Beef</li>
+                                        <input class="mr-2" type="checkbox" aria-label="Checkbox for meat toppings tab" value="beef">Beef</li>
                                     <li class="list-group-item">
-                                        <input class="mr-2" type="checkbox" aria-label="Checkbox for following text input">Ham</li>
+                                        <input class="mr-2" type="checkbox" aria-label="Checkbox for meat toppings tab" value="ham">Ham</li>
                                     <li class="list-group-item">
-                                        <input class="mr-2" type="checkbox" aria-label="Checkbox for following text input">Philly Steak</li>
+                                        <input class="mr-2" type="checkbox" aria-label="Checkbox for meat toppings tab" value="philly">Philly Steak</li>
                                     <li class="list-group-item">
-                                        <input class="mr-2" type="checkbox" aria-label="Checkbox for following text input">Bacon</li>
+                                        <input class="mr-2" type="checkbox" aria-label="Checkbox for meat toppings tab" value="bacon">Bacon</li>
                                 </ul>
                             </div>
                         </div>
@@ -223,13 +223,13 @@
                                 </div>
                                 <ul class="list-group">
                                     <li class="list-group-item">
-                                        <input class="mr-2" type="checkbox" aria-label="Checkbox for following text input">Green Peppers</li>
+                                        <input class="mr-2" type="checkbox" aria-label="Checkbox for non-meat toppings tab" value="green-peppers">Green Peppers</li>
                                     <li class="list-group-item">
-                                        <input class="mr-2" type="checkbox" aria-label="Checkbox for following text input">Mushrooms</li>
+                                        <input class="mr-2" type="checkbox" aria-label="Checkbox for non-meat toppings tab" value="mushrooms">Mushrooms</li>
                                     <li class="list-group-item">
-                                        <input class="mr-2" type="checkbox" aria-label="Checkbox for following text input">Onions</li>
+                                        <input class="mr-2" type="checkbox" aria-label="Checkbox for non-meat toppings tab" value="onions">Onions</li>
                                     <li class="list-group-item">
-                                        <input class="mr-2" type="checkbox" aria-label="Checkbox for following text input">Jalapeno Peppers</li>
+                                        <input class="mr-2" type="checkbox" aria-label="Checkbox for non-meat toppings tab" value="jalapeno-peppers">Jalapeno Peppers</li>
                                 </ul>
                             </div>
                         </div>
