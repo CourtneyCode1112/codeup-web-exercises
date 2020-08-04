@@ -51,7 +51,9 @@
     </div>
 </nav>
 <!--END OF NAV BAR-->
+
 <div class="container-fluid">
+
     <!-- START OF JUMBOTRON -->
     <div class="jumbotron jumbotron-fluid p-0 m-0 d-none d-sm-block">
         <div class="container-fluid m-0 p-0">
@@ -60,6 +62,7 @@
         </div>
     </div>
     <!-- END OF JUMBOTRON -->
+
     <!-- START OF BUILD -->
     <h2 class="lead my-4">Build your own pizza!</h2>
     <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -74,11 +77,13 @@
         </li>
     </ul>
     <div class="tab-content mb-4" id="myTabContent">
+
         <!--size and crust tab-->
         <div class="tab-pane fade show active" id="sizecrust" role="tabpanel" aria-labelledby="sizecrust-tab">
             <section class="tab-content" id="myTabContent1">
                 <div class="tab-pane fade show active h-75S" role="tabpanel" aria-labelledby="sizecrust-tab">
                     <!--start size and crust tab -->
+
                     <!--1st size and crust option-->
                     <div class="card">
                         <h5 class="card-header bg-primary text-white">Choose size and crust</h5>
@@ -89,17 +94,25 @@
                                 </div>
                                 <ul class="list-group list-group-flush">
                                     <li class="list-group-item">Garlic seasoned crust with a rich, buttery taste.</li>
-                                    <li class="list-group-item"><input class="radio_button" type="radio" value="Small"
-                                                                       aria-label="Radio button garlic pizza size">Small
-                                        (10")
+
+                                    <li class="list-group-item">
+                                        <div class="custom-control custom-radio">
+                                        <input class="form-check-input radio_button" type="radio" id="garlic-small" name="garlic-small" aria-label="Radio button for small garlic pizza size">
+                                        <label class="form-check-label" for="garlic-small">Small (10")</label>
+                                        </div>
                                     </li>
-                                    <li class="list-group-item"><input class="radio_button" type="radio" value="medium"
-                                                                       aria-label="Radio button for garlic pizza size">Medium
-                                        (12")
+
+                                    <li class="list-group-item">
+                                        <div class="custom-control custom-radio">
+                                            <input class="form-check-input radio_button" type="radio" id="garlic-medium" name="garlic-medium" aria-label="Radio button for medium garlic pizza size">
+                                            <label class="form-check-label" for="garlic-medium">Medium (12")</label>
+                                        </div>
                                     </li>
+
                                 </ul>
                             </div>
                         </div>
+
                         <!--2nd size and crust option -->
                         <div class="card-body">
                             <div class="card" style="width: 100%;">
@@ -107,15 +120,20 @@
                                     Crispy Thin
                                 </div>
                                 <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">Thin enough for optimum crispy to crunchy ratio.</li>
-                                    <li class="list-group-item"><input class="radio_button" type="radio" value="small"
-                                                                       aria-label="Radio button for crispy size">Small
-                                        (10")
+                                    <li class="list-group-item">
+                                        <div class="custom-control custom-radio">
+                                            <input class="form-check-input radio_button" type="radio" id="thin-medium" name="thin-medium" aria-label="Radio button for medium thin pizza size">
+                                            <label class="form-check-label" for="thin-medium">Medium (12")</label>
+                                        </div>
                                     </li>
-                                    <li class="list-group-item"><input class="radio_button" type="radio" value="medium"
-                                                                       aria-label="Radio button for crispy size">Medium
-                                        (12")
+
+                                    <li class="list-group-item">
+                                        <div class="custom-control custom-radio">
+                                            <input class="form-check-input radio_button" type="radio" id="thin-large" name="thin-large" aria-label="Radio button for large thing pizza size">
+                                            <label class="form-check-label" for="thin-large">Large (14")</label>
+                                        </div>
                                     </li>
+
                                 </ul>
                             </div>
                         </div>
@@ -127,13 +145,16 @@
             </section>
         </div>
         <!--end of size and crust tab-->
+
         <!--start of cheese an sauce tab-->
         <div class="tab-pane fade" id="cheesesauce" role="tabpanel" aria-labelledby="cheesesauce-tab">
             <section class="tab-content mb-4" id="myTabContent2">
                 <div class="tab-pane fade show active h-75S" role="tabpanel" aria-labelledby="cheesesauce-tab">
+
                     <!--start cheese and sauce tabs -->
                     <div class="card">
                         <h5 class="card-header bg-primary text-white">Choose Cheese and Sauce</h5>
+
                         <!--1st cheese and sauce option-->
                         <div class="card-body">
                             <div class="card" style="width: 100%;">
@@ -151,6 +172,7 @@
                                 </div>
                             </div>
                         </div>
+
                         <!--2nd cheese and sauce option -->
                             <div class="card-body">
                                 <div class="card" style="width: 100%;">
@@ -177,6 +199,7 @@
                                 </div>
                             </div>
                         <!--end of 2nd cheese and sauce options -->
+
                         <!--button group for tab 2-->
                         <div class="next-btn btn-group">
                             <div class="group-btns w-100 d-flex justify-content-end mr-4">
@@ -185,18 +208,22 @@
                             </div>
                         </div>
                         <!--end of btn group for tab2-->
+
                     </div>
                 </div>
             </section>
         </div>
         <!--End of cheese and sauce tab-->
+
         <!--Start of toppings tab-->
         <div class="tab-pane fade" id="toppings" role="tabpanel" aria-labelledby="toppings-tab">
             <section class="tab-content mb-4" id="myTabContent3">
                 <div class="tab-pane fade show active h-75S" role="tabpanel" aria-labelledby="toppings-tab">
                     <!--start toppings tabs -->
+
                     <div class="card">
                         <h5 class="card-header bg-primary text-white">Choose Toppings</h5>
+
                         <!--1st toppings option-->
                         <div class="card-body">
                             <div class="card" style="width: 100%;">
@@ -204,17 +231,39 @@
                                     Choose Meats
                                 </div>
                                 <ul class="list-group">
+
                                     <li class="list-group-item">
-                                        <input class="mr-2" type="checkbox" aria-label="Checkbox for meat toppings tab" value="beef">Beef</li>
+                                        <div class="custom-control custom-radio">
+                                        <input class="form-check-input checkbox_button" type="checkbox" id="beef" name="beef" aria-label="Checkbox for beef on meat toppings tab">
+                                            <label class="form-check-label" for="beef">Beef</label>
+                                        </div>
+                                    </li>
+
                                     <li class="list-group-item">
-                                        <input class="mr-2" type="checkbox" aria-label="Checkbox for meat toppings tab" value="ham">Ham</li>
+                                        <div class="custom-control custom-radio">
+                                            <input class="form-check-input checkbox_button" type="checkbox" id="ham" name="ham" aria-label="Checkbox for bham on meat toppings tab">
+                                            <label class="form-check-label" for="ham">Ham</label>
+                                        </div>
+                                    </li>
+
                                     <li class="list-group-item">
-                                        <input class="mr-2" type="checkbox" aria-label="Checkbox for meat toppings tab" value="philly">Philly Steak</li>
+                                        <div class="custom-control custom-radio">
+                                            <input class="form-check-input checkbox_button" type="checkbox" id="steak" name="steak" aria-label="Checkbox for philly steak on meat toppings tab">
+                                            <label class="form-check-label" for="steak">Philly Steak</label>
+                                        </div>
+                                    </li>
+
                                     <li class="list-group-item">
-                                        <input class="mr-2" type="checkbox" aria-label="Checkbox for meat toppings tab" value="bacon">Bacon</li>
+                                        <div class="custom-control custom-radio">
+                                            <input class="form-check-input checkbox_button" type="checkbox" id="bacon" name="bacon" aria-label="Checkbox for bacon on meat toppings tab">
+                                            <label class="form-check-label" for="bacon">Bacon</label>
+                                        </div>
+                                    </li>
                                 </ul>
+
                             </div>
                         </div>
+
                         <!--2nd toppings option -->
                         <div class="card-body">
                             <div class="card" style="width: 100%;">
@@ -222,23 +271,45 @@
                                     Choose Non-Meats
                                 </div>
                                 <ul class="list-group">
+
                                     <li class="list-group-item">
-                                        <input class="mr-2" type="checkbox" aria-label="Checkbox for non-meat toppings tab" value="green-peppers">Green Peppers</li>
+                                        <div class="custom-control custom-radio">
+                                            <input class="form-check-input checkbox_button" type="checkbox" id="green-peppers" name="green-peppers" aria-label="Checkbox for green-peppers on non-meat toppings tab">
+                                            <label class="form-check-label" for="green-peppers">Green Peppers</label>
+                                        </div>
+                                    </li>
+
                                     <li class="list-group-item">
-                                        <input class="mr-2" type="checkbox" aria-label="Checkbox for non-meat toppings tab" value="mushrooms">Mushrooms</li>
+                                        <div class="custom-control custom-radio">
+                                            <input class="form-check-input checkbox_button" type="checkbox" id="mushrooms" name="mushrooms" aria-label="Checkbox for mushrooms on non-meat toppings tab">
+                                            <label class="form-check-label" for="mushrooms">Mushrooms</label>
+                                        </div>
+                                    </li>
+
                                     <li class="list-group-item">
-                                        <input class="mr-2" type="checkbox" aria-label="Checkbox for non-meat toppings tab" value="onions">Onions</li>
+                                        <div class="custom-control custom-radio">
+                                            <input class="form-check-input checkbox_button" type="checkbox" id="onions" name="onions" aria-label="Checkbox for onions on non-meat toppings tab">
+                                            <label class="form-check-label" for="onions">Onions</label>
+                                        </div>
+                                    </li>
+
                                     <li class="list-group-item">
-                                        <input class="mr-2" type="checkbox" aria-label="Checkbox for non-meat toppings tab" value="jalapeno-peppers">Jalapeno Peppers</li>
+                                        <div class="custom-control custom-radio">
+                                            <input class="form-check-input checkbox_button" type="checkbox" id="jala-peppers" name="jala-peppers" aria-label="Checkbox for Jalapenos on non-meat toppings tab">
+                                            <label class="form-check-label" for="jala-peppers">Jalapeno Peppers</label>
+                                        </div>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
                         <!--end of 2nd toppings options -->
+
                         <!--button for tab 3-->
                         <p class="next-btn d-flex m-0">
                             <a href="#" class="btn btn-primary ml-auto m-4"><i class="fas fa-shopping-cart mr-1"></i>Checkout</a>
                         </p>
                         <!--end of btn for tab3-->
+
                     </div>
                 </div>
             </section>
