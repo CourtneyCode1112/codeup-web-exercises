@@ -1,0 +1,135 @@
+body {
+    background-color: #F0F0F0;
+}
+
+#nav-bar {
+    z-index: -100;
+}
+
+h1 {
+    font-family: 'Abel', sans-serif !important;
+    margin-top: 30px;
+}
+
+.navlinksall {
+    margin-top: 30px;
+}
+
+.logoall {
+    width: 150px !important;
+    height: 150px !important;
+}
+
+/*#small-nav {*/
+/*    bottom: 50%;*/
+/*}*/
+
+#small-nav {
+    width: 100%;
+    text-align: center;
+}
+
+#navlinks-small {
+    top: 50px;
+    padding-right: 0;
+    width: 100%;
+}
+
+#navlinks-small li:nth-child(3) {
+    top: 50px;
+    padding-left: 100px;
+}
+
+.visual-header {
+    font-family: 'Anton', sans-serif;
+    font-size: 64px;
+    text-align: center;
+}
+
+.visual-header-2 {
+    font-family: 'Anton', sans-serif;
+    font-size: 40px;
+    text-align: center;
+}
+
+.bigbutton{
+    width: 105px;
+    height: 105px;
+    border: 5px solid white;
+    border-radius: 50%;
+    font-size: 20px;
+    font-family: 'Anton', sans-serif;
+}
+
+#redbutton, .redsmallbutton {
+    background-color: #E6563B;
+}
+
+#orangebutton, .orangesmallbutton {
+    background-color: #EB9D3A;
+}
+#greenbutton, .greensmallbutton {
+    background-color: #7CB06C;
+}
+
+#bluebutton, .bluesmallbutton {
+    background-color: #00ABA9;
+}
+
+hr {
+    border: 1px solid #bbb;
+}
+
+/*#apple {*/
+/*    height: 250px;*/
+/*    width: 200px;*/
+/*}*/
+
+.thepictures {
+    border: 5px solid #e6e6e6;
+    height: 80%;
+}
+
+.featuredprojects, .tweet-text{
+    font-size: 15px;
+    font-family: 'Abel', sans-serif !important;
+}
+.smallbutton {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    font-size: 9px;
+    font-family: 'Anton', sans-serif;
+    margin: 0 3px;
+    /*padding: 5px;*/
+}
+
+.selectedwork {
+    font-family: 'Abel', sans-serif !important;
+    margin: 20px 0;
+}
+.thumbnails {
+    border: 2px solid #e6e6e6;
+    width: 60px;
+    height: 58px;
+}
+
+.the-last-headers {
+    font-family: 'Anton', sans-serif;
+    font-size: 20px;
+    margin: 0 .5em;
+}
+
+#twitter {
+    color: #1DA1F2;
+}
+
+.last-tweet {
+    font-family: 'Abel', sans-serif !important;
+    font-weight: bolder;
+}
+
+a:hover {
+    color: blue !important;
+}
+
