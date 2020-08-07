@@ -10,7 +10,7 @@ body {
     width: 95%;
     display: flex;
     background-color: #bef6f0;
-    border: 1px solid grey;
+    border: 1px solid black; /*test*/
     justify-content: center;
     align-items: center;
     height: 3em;
