@@ -8,56 +8,32 @@ body {
 
 h1 {
     font-family: 'Abel', sans-serif !important;
-    margin-top: 30px;
+    margin-top: 18px;
 }
 
-.navlinksall {
-    margin-top: 30px;
+.alllogos {
+    width: 105px !important;
+    height: 105px !important;
 }
 
-.logoall {
-    width: 150px !important;
-    height: 150px !important;
-}
-
-/*#small-nav {*/
-/*    bottom: 50%;*/
-/*}*/
-
-#small-nav {
-    width: 100%;
-    text-align: center;
-}
-
-#navlinks-small {
-    top: 50px;
-    padding-right: 0;
-    width: 100%;
-}
-
-#navlinks-small li:nth-child(3) {
-    top: 50px;
-    padding-left: 100px;
-}
-
-.visual-header {
+h2, h3 {
     font-family: 'Anton', sans-serif;
-    font-size: 64px;
-    text-align: center;
 }
 
-.visual-header-2 {
-    font-family: 'Anton', sans-serif;
-    font-size: 40px;
-    text-align: center;
+h2 {
+    font-size: 54px;
 }
 
-.bigbutton{
-    width: 105px;
-    height: 105px;
-    border: 5px solid white;
+h3 {
+    font-size: 30px;
+}
+
+.bigbutton {
+    width: 135px;
+    height: 135px;
+    border: 8px solid white;
     border-radius: 50%;
-    font-size: 20px;
+    font-size: 25px;
     font-family: 'Anton', sans-serif;
 }
 
@@ -80,20 +56,16 @@ hr {
     border: 1px solid #bbb;
 }
 
-/*#apple {*/
-/*    height: 250px;*/
-/*    width: 200px;*/
-/*}*/
-
 .thepictures {
     border: 5px solid #e6e6e6;
     height: 80%;
 }
 
-.featuredprojects, .tweet-text{
+.featuredprojects, .tweet-text {
     font-size: 15px;
     font-family: 'Abel', sans-serif !important;
 }
+
 .smallbutton {
     width: 18px;
     height: 18px;
@@ -101,13 +73,13 @@ hr {
     font-size: 9px;
     font-family: 'Anton', sans-serif;
     margin: 0 3px;
-    /*padding: 5px;*/
 }
 
 .selectedwork {
     font-family: 'Abel', sans-serif !important;
     margin: 20px 0;
 }
+
 .thumbnails {
     border: 2px solid #e6e6e6;
     width: 60px;
@@ -130,6 +102,13 @@ hr {
 }
 
 a:hover {
-    color: blue !important;
+    color: #6f6fea !important;
+    text-decoration: none;
+}
+
+.bigbutton:hover, .smallbutton:hover {
+    box-shadow: 0 0 10px #000;
+    -moz-box-shadow: 0 0 10px #000;
+    -webkit-box-shadow: 0 0 10px #000;
 }
 
