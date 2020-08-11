@@ -7,7 +7,28 @@
 <body>
 <h1>Inline JS</h1>
 <script>
-    console.log("Hello from inline Javascript")
+    "use strict"
+
+    console.log("Hello from inline Javascript");
+
+    function favSong(song) {
+        var usersFavSong = prompt("What is your favorite song?");
+        alert("WHAT?! " + usersFavSong + " is my favorite song too!");
+    }
+    favSong();
+
+    //Anonymous function stored in a variable
+
+    var pizzaOrder = function(store) {
+        var pizzaSize = prompt("What size pizza would you like?");
+        var topOne = prompt("What meat topping would you like? Please choose toppings or enter no meat topping to skip.");
+        var topTwo = prompt("What non-meat topping would you like? Please choose toppings or enter no non-meat topping to skip.");
+        alert("You're order for a " + pizzaSize + " pizza with " + topOne + " and " + topTwo + " from " + store + " is being made.");
+        return store;
+    }
+
+    var previousOrder = pizzaOrder("Domino's");
+    console.log("Your previous order was from " + previousOrder);
 
 </script>
 
