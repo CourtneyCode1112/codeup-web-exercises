@@ -253,6 +253,13 @@ var message = (success) ? console.log("Operation was successful.") : console.log
 
 var weatherMessage = (weather === "rainy") ? console.log("It's raining!") : console.log("Have a nice day!");
 
+//TODO: Refactor todo#1 as a function named checkIfGameIsOver, that accepts numberOfLives and returns
+// "Sorry, game over" if numberOfLives is 0, else return "Next Level!.
+
+var numberOfLives2 = 5;
+var checkIfGameIsOver2 = (numberOfLives2 <= 0) ? "Sorry, game over." : "Next Level!";
+console.log(checkIfGameIsOver2);
+
 // =============== SWITCH STATEMENT ================
 //TODO Together:
 
