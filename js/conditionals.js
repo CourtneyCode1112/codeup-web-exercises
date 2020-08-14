@@ -20,18 +20,18 @@
  * console.logging the function's return value
  */
 
-// function analyzeColor(color) {
-//     if (color === "blue") {
-//         console.log("Blue is the color of the sky");
-//     } else if (color === "red") {
-//         console.log("Strawberries are red");
-//     } else if (color === "cyan") {
-//         console.log("I don't know anything about cyan");
-//     } else {
-//         console.log("Color is unknown.");
-//     }
-// }
-// analyzeColor("red");
+function analyzeColor(color) {
+    if (color === "blue") {
+        console.log("Blue is the color of the sky");
+    } else if (color === "red") {
+        console.log("Strawberries are red");
+    } else if (color === "cyan") {
+        console.log("I don't know anything about cyan");
+    } else {
+        console.log("Color is unknown.");
+    }
+}
+analyzeColor("red");
 
 // Don't change the next two lines!
 // These lines create two variables for you:
@@ -101,20 +101,20 @@ rainbowColors2(randomColor);
  * user to your `analyzeColor` function. Alert the return value from your
  * function to show it to the user.
  */
-var color = prompt("Please pick one color: blue, red, cyan or pick your own.");
+var color2 = prompt("Please pick one color: blue, red, cyan or pick your own.");
 
-function analyzeColor(color) {
-    if (color === "blue") {
+function analyzeColor2(color2) {
+    if (color2 === "blue") {
         alert("Blue is the color of the sky");
-    } else if (color === "red") {
+    } else if (color2 === "red") {
         alert("Strawberries are red");
-    } else if (color === "cyan") {
+    } else if (color2 === "cyan") {
         alert("I don't know anything about cyan");
     } else {
         alert("Color is unknown.");
     }
 }
-analyzeColor(color);
+analyzeColor2(color2);
 /* ########################################################################## */
 
 /**
@@ -137,34 +137,34 @@ analyzeColor(color);
  * return value.
  */
 
-// function calculateTotal(luckyNumber, totalAmount) {
-//     var totalAmountNum = parseInt(totalAmount);
-//     var luckyNumberOne = totalAmountNum - (totalAmountNum * .10);
-//     var luckyNumberTwo = totalAmountNum - (totalAmountNum * .25);
-//     var luckyNumberThree = totalAmountNum - (totalAmountNum * .35);
-//     var luckyNumberFour = totalAmountNum - (totalAmountNum * .50);
-//     switch(luckyNumber, totalAmountNum) {
-//         case (luckyNumber == 0 && totalAmountNum) :
-//             console.log("Sorry, you're lucky number is " + luckyNumber + ", you do not receive a discount.");
-//             break;
-//         case (luckyNumber == 1 && totalAmountNum) :
-//             console.log("You're lucky number is " + luckyNumber + ", you received a 10% discount! Your new discounted price is $" + luckyNumberOne + "!");
-//             break;
-//         case (luckyNumber == 2 && totalAmountNum) :
-//             console.log("You're lucky number is " + luckyNumber + ", you received a 25% discount! Your new discounted price is $" + luckyNumberTwo + "!");
-//             break;
-//         case (luckyNumber == 3 && totalAmountNum) :
-//             console.log("You're lucky number is " + luckyNumber + ", you received a 35% discount! Your new discounted price is $" + luckyNumberThree + "!");
-//             break;
-//         case (luckyNumber == 4 && totalAmountNum) :
-//             console.log("You're lucky number is " + luckyNumber + ", you received a 50% discount! Your new discounted price is $" + luckyNumberFour + "!");
-//             break;
-//         case (luckyNumber == 5 && totalAmountNum) :
-//             console.log("You're lucky number is " + luckyNumber + ", you received a 100% discount! Your items are free!");
-//             break;
-//     }
-// }
-// calculateTotal(4, 100);
+function calculateTotal(luckyNumber, totalAmount) {
+    var totalAmountNum = parseInt(totalAmount);
+    var luckyNumberOne = totalAmountNum - (totalAmountNum * .10);
+    var luckyNumberTwo = totalAmountNum - (totalAmountNum * .25);
+    var luckyNumberThree = totalAmountNum - (totalAmountNum * .35);
+    var luckyNumberFour = totalAmountNum - (totalAmountNum * .50);
+    switch(luckyNumber, totalAmountNum) {
+        case (luckyNumber == 0 && totalAmountNum) :
+            console.log("Sorry, you're lucky number is " + luckyNumber + ", you do not receive a discount.");
+            break;
+        case (luckyNumber == 1 && totalAmountNum) :
+            console.log("You're lucky number is " + luckyNumber + ", you received a 10% discount! Your new discounted price is $" + luckyNumberOne + "!");
+            break;
+        case (luckyNumber == 2 && totalAmountNum) :
+            console.log("You're lucky number is " + luckyNumber + ", you received a 25% discount! Your new discounted price is $" + luckyNumberTwo + "!");
+            break;
+        case (luckyNumber == 3 && totalAmountNum) :
+            console.log("You're lucky number is " + luckyNumber + ", you received a 35% discount! Your new discounted price is $" + luckyNumberThree + "!");
+            break;
+        case (luckyNumber == 4 && totalAmountNum) :
+            console.log("You're lucky number is " + luckyNumber + ", you received a 50% discount! Your new discounted price is $" + luckyNumberFour + "!");
+            break;
+        case (luckyNumber == 5 && totalAmountNum) :
+            console.log("You're lucky number is " + luckyNumber + ", you received a 100% discount! Your items are free!");
+            break;
+    }
+}
+calculateTotal(4, 100);
 
 /**
  * TODO:
@@ -174,39 +174,39 @@ analyzeColor(color);
  * price before the discount was, and what their price after the discount is.
  */
 // Generate a random number between 0 and 6
-var luckyNumber = Math.floor(Math.random() * 6);
+var luckyNumber1 = Math.floor(Math.random() * 6);
 
-function calculateTotal(luckyNumber, totalAmount) {
+function calculateTotal2(luckyNumber1, totalAmount) {
     var totalAmountNum = parseInt(totalAmount);
     var luckyNumberOne = totalAmountNum - (totalAmountNum * .10);
     var luckyNumberTwo = totalAmountNum - (totalAmountNum * .25);
     var luckyNumberThree = totalAmountNum - (totalAmountNum * .35);
     var luckyNumberFour = totalAmountNum - (totalAmountNum * .50);
-    switch(luckyNumber, totalAmountNum) {
-        case (luckyNumber == 0 && totalAmount) :
-            console.log("Sorry, you're lucky number is " + luckyNumber + ", you do not receive a discount. Your bill is " + totalAmountNum + ".");
+    switch(luckyNumber1, totalAmountNum) {
+        case (luckyNumber1 == 0 && totalAmount) :
+            console.log("Sorry, you're lucky number is " + luckyNumber1 + ", you do not receive a discount. Your bill is " + totalAmountNum + ".");
             break;
-        case (luckyNumber == 1 && totalAmount) :
-            console.log("You're lucky number is " + luckyNumber + ", you received a 10% discount! Your price before the discount is $" + totalAmountNum + ". Your new discounted price is $" + luckyNumberOne + "!");
+        case (luckyNumber1 == 1 && totalAmount) :
+            console.log("You're lucky number is " + luckyNumber1 + ", you received a 10% discount! Your price before the discount is $" + totalAmountNum + ". Your new discounted price is $" + luckyNumberOne + "!");
             break;
-        case (luckyNumber == 2 && totalAmount) :
-            console.log("You're lucky number is " + luckyNumber + ", you received a 25% discount! Your price before the discount is $" + totalAmountNum + ". Your new discounted price is $" + luckyNumberTwo + "!");
+        case (luckyNumber1 == 2 && totalAmount) :
+            console.log("You're lucky number is " + luckyNumber1 + ", you received a 25% discount! Your price before the discount is $" + totalAmountNum + ". Your new discounted price is $" + luckyNumberTwo + "!");
             break;
-        case (luckyNumber == 3 && totalAmount) :
-            console.log("You're lucky number is " + luckyNumber + ", you received a 35% discount! Your price before the discount is $" + totalAmountNum + ". Your new discounted price is $" + luckyNumberThree + "!");
+        case (luckyNumber1 == 3 && totalAmount) :
+            console.log("You're lucky number is " + luckyNumber1 + ", you received a 35% discount! Your price before the discount is $" + totalAmountNum + ". Your new discounted price is $" + luckyNumberThree + "!");
             break;
-        case (luckyNumber == 4 && totalAmount) :
-            console.log("You're lucky number is " + luckyNumber + ", you received a 50% discount! Your price before the discount is $" + totalAmountNum + ". Your new discounted price is $" + luckyNumberFour + "!");
+        case (luckyNumber1 == 4 && totalAmount) :
+            console.log("You're lucky number is " + luckyNumber1 + ", you received a 50% discount! Your price before the discount is $" + totalAmountNum + ". Your new discounted price is $" + luckyNumberFour + "!");
             break;
-        case (luckyNumber == 5 && totalAmount) :
-            console.log("You're lucky number is " + luckyNumber + ", you received a 100% discount! Your price before the discount is $" + totalAmountNum + ". Your items are now free!");
+        case (luckyNumber1 == 5 && totalAmount) :
+            console.log("You're lucky number is " + luckyNumber1 + ", you received a 100% discount! Your price before the discount is $" + totalAmountNum + ". Your items are now free!");
             break;
         default :
             console.log("Error");
             break;
     }
 }
-calculateTotal(luckyNumber, 100);
+calculateTotal2(luckyNumber1, 100);
 
 /**
  * TODO:
