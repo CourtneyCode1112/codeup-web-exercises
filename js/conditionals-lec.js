@@ -198,7 +198,7 @@ function trafficLight(color) {
         alert("The light is red. Stop.");
     } else if (color === "yellow") {
         alert("The light is yellow. Slow down.");
-    } else {
+    } else if (color === "green") {
         alert("The light is green. Go.");
     }
 }
@@ -211,7 +211,7 @@ trafficLight("red");
 // older and have a permit, they are eligible for license, if they are 16 or older and do not have a permit,
 // they are not eligible for a license.
 
-var age = 15;
+var age = 16;
 var hasPermit = true;
 if (age < 15) {
     alert ("You are not eligible for a learner's permit.");
@@ -224,8 +224,8 @@ if (age < 15) {
 // ================ TERNARY STATEMENT ================
 //TODO Together: Regular way - rewrite as ternary
 
-// var message;
-// var success = true;
+ //var message;
+ var success = false;
 //
 // if (success) {
 //     message = "Operation was successful.";
@@ -235,11 +235,11 @@ if (age < 15) {
 // console.log(message);
 
 //WRITE YOUR TERNARY STATEMENT HERE!
-
+var message = (success) ? console.log("Operation was successful.") : console.log("Opps, something went wrong.");
 
 //TODO: Refactor the following conditional as a ternary
 
-// var weather = "sunny";
+ var weather = "sunny";
 // var weatherMessage;
 
 // if(weather === "rainy"){
@@ -251,12 +251,12 @@ if (age < 15) {
 
 //WRITE YOUR TERNARY STATEMENT HERE!
 
-
+var weatherMessage = (weather === "rainy") ? console.log("It's raining!") : console.log("Have a nice day!");
 
 // =============== SWITCH STATEMENT ================
 //TODO Together:
 
-// var pizzaPreference = prompt("What kind of pizza do you like?");
+ var pizzaPreference = prompt("What kind of pizza do you like?");
 // console.log("User pizza input: " + pizzaPreference);
 //
 // if (pizzaPreference === "pineapple and hot sauce") {
@@ -268,15 +268,66 @@ if (age < 15) {
 // } else {
 //     alert(pizzaPreference + " isn't my favorite, but let's order some!");
 // }
+switch(pizzaPreference) {
+    case "pineapple and hot sauce":
+        alert("What a coincidence, that's my favorite!");
+        break;
+    case "cheese":
+        alert("Just plain cheese? Okay...");
+        break;
+    case "ham":
+        alert("Ham is easy to spell and awesome!");
+        break;
+    default:
+        alert(pizzaPreference + " isn't my favorite, but let's order some!");
+        break;
+}
 
 
 
 
 //TODO: Write a switch statement that evaluates weather as the condition. Check for "rainy", "sunny", "snow", and a default case.
+var currentWeather = "snow";
 
+switch(currentWeather) {
+    case "rainy":
+        alert("Bring your umbrella, it is raining out!");
+        break;
+    case "sunny":
+        alert("Bring your shades, it's sunny out!");
+        break;
+    case "snow":
+        alert("Brrr, it's snowing!");
+        break;
+    default:
+        alert("Please check back for your weather report.");
+        break;
+}
 
 //TODO: Rewrite the intersection function from earlier as a switch statement.
+// function trafficLight(color) {
+//     if (color === "red") {
+//         alert("The light is red. Stop.");
+//     } else if (color === "yellow") {
+//         alert("The light is yellow. Slow down.");
+//     } else if (color === "green") {
+//         alert("The light is green. Go.");
+//     }
+// }
+// trafficLight("red");
+var trafficLightColor = "red";
 
+switch(trafficLightColor) {
+    case "red":
+        alert("STOP!");
+        break;
+    case "yellow":
+        alert("SLOW DOWN!");
+        break;
+    case "green":
+        alert("GO!");
+        break;
+}
 
 
 // ================ REVERSE ENGINEERING =================
