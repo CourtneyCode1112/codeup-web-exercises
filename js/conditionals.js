@@ -21,11 +21,11 @@
  */
 
 function analyzeColor(color) {
-    if (color === "blue") {
+    if (color.toLowerCase() === "blue") {
         console.log("Blue is the color of the sky");
-    } else if (color === "red") {
+    } else if (color.toLowerCase() === "red") {
         console.log("Strawberries are red");
-    } else if (color === "cyan") {
+    } else if (color.toLowerCase() === "cyan") {
         console.log("I don't know anything about cyan");
     } else {
         console.log("Color is unknown.");
@@ -104,11 +104,11 @@ rainbowColors2(randomColor);
 var color2 = prompt("Please pick one color: blue, red, cyan or pick your own.");
 
 function analyzeColor2(color2) {
-    if (color2 === "blue") {
+    if (color2.toLowerCase() === "blue") {
         alert("Blue is the color of the sky");
-    } else if (color2 === "red") {
+    } else if (color2.toLowerCase() === "red") {
         alert("Strawberries are red");
-    } else if (color2 === "cyan") {
+    } else if (color2.toLowerCase() === "cyan") {
         alert("I don't know anything about cyan");
     } else {
         alert("Color is unknown.");
