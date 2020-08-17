@@ -28,20 +28,29 @@ describe("returnMultiplicationTable", function() {
 describe("returnEvenOddMessage", function() {
     it("should be defined", function() {
         // TODO: add an assertion to verify that the function is defined
-
+        expect(returnEvenOddMessage).toBeDefined();
     });
     it("should return a string when passed an integer", function() {
         // TODO: add an assertion verifying that the function returns a string when passed an integer
-
+        expect(typeof returnEvenOddMessage()).toEqual("string");
     });
     it("should return the correct message when passed an integer", function() {
         // TODO: add several assertions that verify the correct string output for a given integer input
-
+        expect(returnEvenOddMessage(123)).toEqual("123 is odd");
+        expect(returnEvenOddMessage(80)).toEqual("80 is even");
+        expect(returnEvenOddMessage(24)).toEqual("24 is even");
+        expect(returnEvenOddMessage(199)).toEqual("199 is odd");
+        expect(returnEvenOddMessage(200)).toEqual("200 is even");
+        expect(returnEvenOddMessage(40)).toEqual("40 is even");
+        expect(returnEvenOddMessage(57)).toEqual("57 is odd");
+        expect(returnEvenOddMessage(108)).toEqual("108 is even");
+        expect(returnEvenOddMessage(139)).toEqual("139 is odd");
+        expect(returnEvenOddMessage(20)).toEqual("20 is even");
     });
 });
 
 describe("returnTenEvenOddMessages", function() {
-
+     expect(returnTenEvenOddMessages).toBeDefined();
     // TODO: add a test to verify that the function is defined
 
     it("should return an output that ends with the word 'odd' or 'even'", function() {
