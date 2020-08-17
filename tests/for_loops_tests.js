@@ -50,13 +50,14 @@ describe("returnEvenOddMessage", function() {
 });
 
 describe("returnTenEvenOddMessages", function() {
-     expect(returnTenEvenOddMessages).toBeDefined();
+    it("should be defined", function() {
+    expect(returnTenEvenOddMessages).toBeDefined();
     // TODO: add a test to verify that the function is defined
-
+});
     it("should return an output that ends with the word 'odd' or 'even'", function() {
         var output = returnTenEvenOddMessages();
         // TODO: add an assertion to verify that the function output ends with either "even" or "odd"
-
+        expect(returnTenEvenOddMessages()).toContain("even" || "odd");
     });
     it("should return an output with 10 lines", function() {
         expect(returnTenEvenOddMessages().split("\n").length).toEqual(10);
@@ -78,6 +79,7 @@ describe("returnTenEvenOddMessages", function() {
         }
 
         // TODO: assert that the outputContainsExpectedNumbers function returns true
+        expect(outputContainsExpectedNumbers()).toEqual(true);
 
     });
 });
