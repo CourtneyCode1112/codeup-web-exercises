@@ -1,10 +1,8 @@
-var returnMultiplicationTable = function(num) {
-    var i = 1;
+let returnMultiplicationTable = function(num) {
     let output = '';
-    while (i <= 10) {
+    for (let i = 1; i <= 10; i++) {
         output += (num + " x " + i + " = " + num*i);
-        i++;
-        if (i !== 11) output += '\n';
+        if (i !== 10) output += '\n';
     }
     return output;
 }
