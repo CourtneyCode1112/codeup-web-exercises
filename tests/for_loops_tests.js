@@ -57,7 +57,7 @@ describe("returnTenEvenOddMessages", function() {
     it("should return an output that ends with the word 'odd' or 'even'", function() {
         var output = returnTenEvenOddMessages();
         // TODO: add an assertion to verify that the function output ends with either "even" or "odd"
-        expect(returnTenEvenOddMessages()).toContain("even" || "odd");
+        expect(output).toContain("even" || "odd");
     });
     it("should return an output with 10 lines", function() {
         expect(returnTenEvenOddMessages().split("\n").length).toEqual(10);
@@ -88,10 +88,17 @@ describe("returnTenEvenOddMessages", function() {
 // Number Sail Tests
 describe("returnNumberSail", function() {
     // TODO: include a test to verify that the function is defined
-
+    it("should be defined", function() {
+        // TODO: add an assertion to verify that the function is defined
+        expect(returnNumberSail()).toBeDefined();
+    });
     // TODO: include a test to verify that the function output is a string
+    it("should return a string when passed an integer", function() {
+        expect(typeof returnNumberSail()).toEqual("string");
+    });
 
     // TODO: include a test to verify that the function output matches the following value
+    it("should return the correct string output when passed one integer", function() {
     var expectedValue = "1\n" +
         "22\n" +
         "333\n" +
@@ -101,6 +108,8 @@ describe("returnNumberSail", function() {
         "7777777\n" +
         "88888888\n" +
         "999999999";
+        expect(returnNumberSail()).toEqual(expectedValue);
+    });
 });
 
 

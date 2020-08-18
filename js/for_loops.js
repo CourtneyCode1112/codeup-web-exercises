@@ -23,7 +23,7 @@ console.log(returnEvenOddMessage(108));
 
 //TENEVENODDMESSAGE
 
-function returnTenEvenOddMessages() {
+var returnTenEvenOddMessages = function() {
     let output1 = "";
     for (let a = 0; a < 10; a++) {
         var randomNumber = Math. floor(Math. random() * (180 + 1) + 20);
@@ -32,5 +32,15 @@ function returnTenEvenOddMessages() {
     }  return output1;
 }
 
-
 console.log(returnTenEvenOddMessages());
+
+//returnNumberSail Function
+var returnNumberSail = function() {
+ let output2 = "";
+     for (let b = 1; b < 10; b++) {
+         output2 += String(b).repeat(b);
+         if (b !== 9) output2 += '\n'
+     } return output2;
+}
+
+console.log(returnNumberSail());
