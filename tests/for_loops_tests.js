@@ -80,7 +80,6 @@ describe("returnTenEvenOddMessages", function() {
 
         // TODO: assert that the outputContainsExpectedNumbers function returns true
         expect(outputContainsExpectedNumbers()).toEqual(true);
-
     });
 });
 
@@ -115,3 +114,34 @@ describe("returnNumberSail", function() {
 
 // Count Down in Fives Tests
 // TODO: include another test suite that verifies that returnCountDownFrom100InFives is defined (first test) and returns the expected output (second test)
+describe("returnCountDownFrom100InFives", function() {
+    // TODO: include a test to verify that the function is defined
+    it("should be defined", function() {
+        // TODO: add an assertion to verify that the function is defined
+        expect(returnCountDownFrom100InFives()).toBeDefined();
+    });
+    // TODO: include a test to verify that the function output matches the following value
+    it("should return the correct string output when passed one integer", function() {
+        var expectedValue1 = "100\n" +
+            "95\n" +
+            "90\n" +
+            "85\n" +
+            "80\n" +
+            "75\n" +
+            "70\n" +
+            "65\n" +
+            "60\n" +
+            "55\n" +
+            "50\n" +
+            "45\n" +
+            "40\n" +
+            "35\n" +
+            "30\n" +
+            "25\n" +
+            "20\n" +
+            "15\n" +
+            "10\n" +
+            "5";
+        expect(returnCountDownFrom100InFives()).toEqual(expectedValue1);
+    });
+});

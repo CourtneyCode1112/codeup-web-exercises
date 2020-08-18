@@ -44,3 +44,16 @@ var returnNumberSail = function() {
 }
 
 console.log(returnNumberSail());
+
+//countdown from 100 in 5's
+var returnCountDownFrom100InFives = function () {
+    var c = 100;
+    var output3 = '';
+    while (c >= 5) {
+        output3 += c
+        c-=5;
+        if (c !== 0) output3 += '\n';
+    } return output3;
+}
+
+console.log(returnCountDownFrom100InFives());
