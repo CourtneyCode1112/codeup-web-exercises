@@ -57,7 +57,7 @@ describe("returnTenEvenOddMessages", function() {
     it("should return an output that ends with the word 'odd' or 'even'", function() {
         var output = returnTenEvenOddMessages();
         // TODO: add an assertion to verify that the function output ends with either "even" or "odd"
-        expect(output).toContain("even" || "odd");
+        expect(output.endsWith("even") || output.endsWith("odd")).toBe(true);
     });
     it("should return an output with 10 lines", function() {
         expect(returnTenEvenOddMessages().split("\n").length).toEqual(10);
