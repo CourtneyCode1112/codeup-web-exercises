@@ -9,7 +9,8 @@ let returnMultiplicationTable = function(num) {
 console.log(returnMultiplicationTable(7));
 
 //RETURNEVENODDMESSAGE
-var returnEvenOddMessage = function(int) {
+let returnEvenOddMessage = function(int) {
+    if (!Number.isInteger(int)) return int + "is invalid.";
     if (int % 2 === 0) {
         return int + " is even";
     } else {
@@ -21,10 +22,10 @@ console.log(returnEvenOddMessage(108));
 
 //TENEVENODDMESSAGE
 
-var returnTenEvenOddMessages = function() {
+let returnTenEvenOddMessages = function() {
     let output1 = "";
     for (let a = 0; a < 10; a++) {
-        var randomNumber = Math. floor(Math. random() * (180 + 1) + 20);
+        let randomNumber = Math. floor(Math. random() * (180 + 1) + 20);
         output1 += returnEvenOddMessage(randomNumber);
         if (a !== 9) output1 += '\n'
     }  return output1;
@@ -33,7 +34,7 @@ var returnTenEvenOddMessages = function() {
 console.log(returnTenEvenOddMessages());
 
 //returnNumberSail Function
-var returnNumberSail = function() {
+let returnNumberSail = function() {
  let output2 = "";
      for (let b = 1; b < 10; b++) {
          output2 += String(b).repeat(b);
@@ -44,9 +45,9 @@ var returnNumberSail = function() {
 console.log(returnNumberSail());
 
 //countdown from 100 in 5's
-var returnCountDownFrom100InFives = function () {
-    var output3 = '';
-    for (var c = 100; c >= 5; c-=5) {
+let returnCountDownFrom100InFives = function () {
+    let output3 = '';
+    for (let c = 100; c >= 5; c-=5) {
         output3 += c
         if (c !== 5) output3 += '\n';
     } return output3;
