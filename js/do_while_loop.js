@@ -9,14 +9,13 @@ let iceCreamConeSales = function() {
         if (allCones === 0) {
             console.log("Yay, I sold them all!");
             break;
-        } else if (allCones < customerCones && allCones > 0) {
+        } else if (allCones < customerCones) {
                 console.log("Cannot sell you " + customerCones + " cones. I only have " + allCones + " left");
-                break;
-        } else if (allCones > 0) {
+        } else {
             console.log(customerCones + " cones sold.");
             allCones = allCones - customerCones;
         }
-    } while (allCones > 0);
+    } while (allCones >= 0);
 }
 
 iceCreamConeSales();
