@@ -27,7 +27,7 @@
     var planetsIntoBrStrings = planetsArray.join("<br>");
     console.log(planetsIntoBrStrings);
 
-    var planetsInList = ("<ul> <li>" + planetsArray.join("<li>") + "</ul>");
+    var planetsInList = ("<ul><li>" + planetsArray.join("</li><li>") + "</li></ul>");
     console.log(planetsInList);
 
 })();
