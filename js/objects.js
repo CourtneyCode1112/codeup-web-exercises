@@ -30,7 +30,7 @@
      */
 
     person.sayHello = function() {
-        return "Hello " + this.firstName + " " + this.lastName + "!";
+        return "Hello from " + this.firstName + " " + this.lastName + "!";
     }
     console.log(person);
     console.log(person.sayHello());
@@ -55,13 +55,16 @@
          {name: 'George', amount: 320}
      ];
 
-     shoppers.forEach(function(shopper) {
-         if (shopper.amount > 200) {
-             console.log(shopper.name + ", the amount before the discount is $" + shopper.amount + " and the amount after the discount of 12% is applied is: $" + (shopper.amount - (shopper.amount * .12)));
-         } else {
-             console.log("Sorry, " + shopper.name + ", you must spend $200 or more to receive a discount.")
-         }
-     })
+     var shoppingReport = function(shopper) {
+         shoppers.forEach(function (shopper) {
+             if (shopper.amount > 200) {
+                 console.log(shopper.name + ", the amount before the discount is $" + shopper.amount + " and the amount after the discount of 12% is applied is: $" + (shopper.amount - (shopper.amount * .12)));
+             } else {
+                 console.log("Sorry, " + shopper.name + ", you must spend $200 or more to receive a discount.")
+             }
+         })
+     }
+     shoppingReport();
 
     /** TODO:
      * Create an array of objects that represent books and store it in a
@@ -77,14 +80,49 @@
      */
 
     var books = [
-        {title: "Can't Hurt Me", author: {firstName: "David", lastName: "Goggins"}},
-        {title: "Living With A Seal", author: {firstName: "Jesse", lastName: "Itzler"}},
-        {title: "The Silent Patient", author: {firstName: "Alex", lastName: "Michaelides"}},
-        {title: "Atomic Habits", author: {firstName: "James", lastName: "Clear"}},
-        {title: "The Outsider", author: {firstName: "Stephen", lastName: "King"}},
-        {title: "The Strange Case of the Alchemists Daughter", author: {firstName: "Theodora", lastName: "Goss"}}
+        {
+            title: "Can't Hurt Me",
+            author: {
+                firstName: "David",
+                lastName: "Goggins"
+            }
+        },
+        {
+            title: "Living With A Seal",
+            author: {
+                firstName: "Jesse",
+                lastName: "Itzler"
+            }
+        },
+        {
+            title: "The Silent Patient",
+            author: {
+                firstName: "Alex",
+                lastName: "Michaelides"
+            }
+        },
+        {
+            title: "Atomic Habits",
+            author: {
+                firstName: "James",
+                lastName: "Clear"
+            }
+        },
+        {
+            title: "The Outsider",
+            author: {
+                firstName: "Stephen",
+                lastName: "King"
+            }
+        },
+        {
+            title: "The Strange Case of the Alchemists Daughter",
+            author: {
+                firstName: "Theodora",
+                lastName: "Goss"
+            }
+        }
     ]
-
 
     /**
      * TODO:
@@ -112,7 +150,7 @@
      */
 
     books.forEach(function(book,i){
-        console.log("Book #" + (i+1) + " Title: " + book.title + " Author: " + book.author.firstName + " " + book.author.lastName);
+        console.log("Book #" + (i+1) +  "\n" + " Title: " + book.title  + "\n" + " Author: " + book.author.firstName + " " + book.author.lastName + "\n" + "----");
     })
 
 
@@ -128,17 +166,17 @@
      *
      */
 
-    var newlyAdded = [];
+    var newlyAddedBooks = [];
 
     var createBook = function(title, firstName, lastName) {
         var book = new Object({title: title, author: {firstName: firstName, lastName: lastName}})
         books.push(book);
-        newlyAdded.push(book);
+        newlyAddedBooks.push(book);
         console.log(books);
     }
     createBook("Horns", "Joe", "Hill");
     createBook("The Whisper Man", "Alex", "North");
-    console.log(newlyAdded);
+    console.log(newlyAddedBooks);
 
 
     var showBookInfo = function(book) {
@@ -151,6 +189,7 @@
         return output
     }
 
-    console.log(showBookInfo(newlyAdded));
+    console.log(showBookInfo(newlyAddedBooks));
+
 
 })();
