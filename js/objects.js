@@ -55,11 +55,11 @@
          {name: 'George', amount: 320}
      ];
 
-     shoppers.forEach(function(shopper, i) {
-         if (this[i].amount < 200) {
-             console.log(this.name + ", the amount before the discount is $" + this.amount + " and the amount after the discount of 12% is applied is: " + this.amount - (this.amount * .12));
+     shoppers.forEach(function(shopper) {
+         if (shopper.amount > 200) {
+             console.log(shopper.name + ", the amount before the discount is $" + shopper.amount + " and the amount after the discount of 12% is applied is: $" + (shopper.amount - (shopper.amount * .12)));
          } else {
-             console.log("Sorry, " + this.name + ", you must spend $200 or more to receive a discount.")
+             console.log("Sorry, " + shopper.name + ", you must spend $200 or more to receive a discount.")
          }
      })
 
@@ -75,6 +75,16 @@
      * > console.log(books[0].author.firstName) // "Douglas"
      * > console.log(books[0].author.lastName) // "Adams"
      */
+
+    var books = [
+        {title: "Can't Hurt Me", author: {firstName: "David", lastName: "Goggins"}},
+        {title: "Living With A Seal", author: {firstName: "Jesse", lastName: "Itzler"}},
+        {title: "The Silent Patient", author: {firstName: "Alex", lastName: "Michaelides"}},
+        {title: "Atomic Habits", author: {firstName: "James", lastName: "Clear"}},
+        {title: "The Outsider", author: {firstName: "Stephen", lastName: "King"}},
+        {title: "The Strange Case of the Alchemists Daughter", author: {firstName: "Theodora", lastName: "Goss"}}
+    ]
+
 
     /**
      * TODO:
@@ -101,6 +111,11 @@
      *      ...
      */
 
+    books.forEach(function(book,i){
+        console.log("Book #" + (i+1) + " Title: " + book.title + " Author: " + book.author.firstName + " " + book.author.lastName);
+    })
+
+
     /**
      * Bonus:
      * - Create a function named `createBook` that accepts a title and author
@@ -110,6 +125,28 @@
      * - Create a function named `showBookInfo` that accepts a book object and
      *   outputs the information described above. Refactor your loop to use your
      *   `showBookInfo` function.
+     *
      */
+
+    function createBook(title, firstName, lastName) {
+        var book = new Object({title: title, author: {firstName: firstName, lastName: lastName}})
+        books.push(book)
+        console.log(books)
+    }
+
+    console.log(createBook("Horns", "Joe", "Hill"))
+
+    var showBookInfo = function(book) {
+        books.forEach(function(book, i){
+        console.log("Book #" + (i+1) + " Title: " + book.title + " Author: " + book.author.firstName + " " + book.author.lastName);
+            })
+        }
+
+    console.log(showBookInfo())
+
+    books.forEach(function(){
+       console.log(showBookInfo());
+    })
+
 
 })();
