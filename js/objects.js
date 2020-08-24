@@ -128,25 +128,29 @@
      *
      */
 
-    function createBook(title, firstName, lastName) {
-        var book = new Object({title: title, author: {firstName: firstName, lastName: lastName}})
-        books.push(book)
-        console.log(books)
-    }
+    var newlyAdded = [];
 
-    console.log(createBook("Horns", "Joe", "Hill"))
+    var createBook = function(title, firstName, lastName) {
+        var book = new Object({title: title, author: {firstName: firstName, lastName: lastName}})
+        books.push(book);
+        newlyAdded.push(book);
+        console.log(books);
+    }
+    createBook("Horns", "Joe", "Hill");
+    createBook("The Whisper Man", "Alex", "North");
+    console.log(newlyAdded);
+
 
     var showBookInfo = function(book) {
-        books.forEach(function(book, i){
-        console.log("Book #" + (i+1) + " Title: " + book.title + " Author: " + book.author.firstName + " " + book.author.lastName);
-            })
-        }
+        var output = "";
+        book.forEach(function (book, i) {
+            output += "Book #" + (i + 1) + "\n";
+            output += "Title: " + book.title + "\n";
+            output += "Author: " + book.author.firstName + " " + book.author.lastName + "\n";
+        })
+        return output
+    }
 
-    console.log(showBookInfo())
-
-    books.forEach(function(){
-       console.log(showBookInfo());
-    })
-
+    console.log(showBookInfo(newlyAdded));
 
 })();
