@@ -109,14 +109,20 @@
 
 //-------------------------
 
-var delay3 = 3000;
-
-var timeout2 =  setTimeout(function () {
-    console.log("It's been 3 seconds!");
-}, delay3);
-
-
+// var delay3 = 5000;
+//
+// var timeout2 =  setTimeout(function () {
+//     console.log("It's been 3 seconds!");
+//     //redirect browser
+//     //window.location = 'http://www.imdb.com';
+// }, delay3);
 
 // to cancel the timeout, you can call
 // clearTimeout(timeoutId);
 // prior to the delay expiring
+function reloadFromCache() {
+    location.reload(); //reload page, possible from cache
+}
+function reloadFromServer() {
+    location.reload(true); //reload from server
+}
