@@ -1,5 +1,15 @@
 'use strict';
 
+//Morning push up exercise on DOM BOM
+(function() {
+    var output = '';
+    for (var i = 1; i <= 10; i++) {
+        var headerElement = document.getElementById('here');
+        output += "Index: " + [i] + '<br>';
+        headerElement.innerHTML = output;
+    }
+})();
+
 // create a handler function
 var listener = function (event) {
     alert('You clicked the button!');
