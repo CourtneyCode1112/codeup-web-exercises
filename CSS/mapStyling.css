@@ -1,0 +1,36 @@
+#map {
+    /* the width and height may be set to any size */
+    width: 95%;
+    height: 600px;
+    margin: 0 auto;
+}
+#fly1, #fly2, #fly3 {
+    display: inline-block;
+    position: relative;
+    margin: 10px 10px;
+    width: 20%;
+    height: 35px;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    font-size: 12px;
+    text-align: center;
+    color: #fff;
+    background: #ee8a65;
+}
+#flyBox, #zoomLevels {
+    text-align: center;
+    margin-bottom: 2px;
+}
+#blissImg {
+    width: 300px;
+    height: 120px;
+}
+#stationImg {
+    width: 180px;
+    height: 180px;
+}
+#nanaImg {
+    width: 250px;
+    height: 300px;
+}

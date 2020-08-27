@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Mapbox Maps API</title>
+    <!--MY CSS-->
+    <link rel="stylesheet" href="CSS/mapStyling.css"/>
     <!-- Mapbox CSS -->
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
     <!-- Mapbox JS -->
@@ -11,45 +13,8 @@
     <script src="js/mapbox-geocoder-utils.js"></script>
     <!---- link keys ---->
     <script src="js/keys.js"></script>
-    <!-- Custom CSS -->
-    <style>
-        #map {
-            /* the width and height may be set to any size */
-            width: 95%;
-            height: 600px;
-            margin: 0 auto;
-        }
-        #fly1, #fly2, #fly3 {
-            display: inline-block;
-            position: relative;
-            margin: 10px 10px;
-            width: 20%;
-            height: 35px;
-            padding: 10px;
-            border: none;
-            border-radius: 3px;
-            font-size: 12px;
-            text-align: center;
-            color: #fff;
-            background: #ee8a65;
-        }
-        #flyBox {
-            text-align: center;
-        }
-        #blissImg {
-            width: 300px;
-            height: 120px;
-        }
-        #stationImg {
-            width: 180px;
-            height: 180px;
-        }
-        #nanaImg {
-            width: 250px;
-            height: 300px;
-        }
-    </style>
 </head>
+
 <body>
 
 <h1>My First Mapbox Map!</h1>
@@ -58,10 +23,10 @@
     <button id="fly2">Restaurant #2</button>
     <button id="fly3">Restaurant #3</button>
 </section>
-<br />
+<br>
+
 <!-- The HTML element that serves as the Mapbox container -->
 <div id='map'></div>
-
 
 <!-- Custom JS -->
 <script>
@@ -182,8 +147,6 @@
     });
 
 //-----------------------------------------
-
-
     var locations = [
         {
             name: 'Bliss',
