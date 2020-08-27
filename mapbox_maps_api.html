@@ -200,6 +200,7 @@
                         'features': [
                             {
                                 'type': 'Feature',
+                                'id': 'restOne',
                                 'properties': {},
                                 'geometry': {
                                     'type': 'Point',
@@ -211,6 +212,7 @@
                             },
                             {
                                 'type': 'Feature',
+                                'id': 'restTwo',
                                 'properties': {},
                                 'geometry': {
                                     'type': 'Point',
@@ -252,10 +254,9 @@
         map.on('click', 'symbols', function(e) {
             map.flyTo({
                 center: e.features[0].geometry.coordinates
-
             });
         });
-        map.on('click', 'symbols', function (){
+        map.on('click', 'symbols', function (e){
             var popup = new mapboxgl.Popup()
                 .setLngLat([-98.486990, 29.411230])
                 .setHTML("<strong>Bliss</strong><br><img id='blissImg' src='Img/bliss.jpg'>")
