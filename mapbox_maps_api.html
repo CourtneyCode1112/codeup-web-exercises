@@ -5,38 +5,50 @@
     <title>Mapbox Maps API</title>
     <!-- Mapbox CSS -->
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+    <!---- link keys ---->
+    <script src="js/keys.js"></script>
     <!-- Custom CSS -->
     <style>
         #map {
             /* the width and height may be set to any size */
-            width: 100%;
-            height: 700px;
+            width: 95%;
+            height: 600px;
+            margin: 0 auto;
+        }
+        #fly1, #fly2, #fly3 {
+            display: inline-block;
+            position: relative;
+            margin: 10px 10px;
+            width: 20%;
+            height: 35px;
+            padding: 10px;
+            border: none;
+            border-radius: 3px;
+            font-size: 12px;
+            text-align: center;
+            color: #fff;
+            background: #ee8a65;
+        }
+        #flyBox {
+            text-align: center;
+        }
+        #blissImg {
+            width: 300px;
+            height: 120px;
         }
     </style>
 </head>
 <body>
-<style>
-    #fly {
-        display: block;
-        position: relative;
-        margin: 0px auto;
-        width: 50%;
-        height: 40px;
-        padding: 10px;
-        border: none;
-        border-radius: 3px;
-        font-size: 12px;
-        text-align: center;
-        color: #fff;
-        background: #ee8a65;
-    }
-</style>
-<h1>My First Mapbox Map!</h1>
 
+<h1>My First Mapbox Map!</h1>
+<section id="flyBox">
+    <button id="fly1">Restaurant #1</button>
+    <button id="fly2">Restaurant #2</button>
+    <button id="fly3">Restaurant #3</button>
+</section>
+<br />
 <!-- The HTML element that serves as the Mapbox container -->
 <div id='map'></div>
-<br />
-<button id="fly">Fly</button>
 
 <!-- Mapbox JS -->
 <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
@@ -46,19 +58,8 @@
 
 <!-- Custom JS -->
 <script>
-    mapboxgl.accessToken = "pk.eyJ1IjoiY291cnRuZXluaWNvbGVob2xsZXkiLCJhIjoiY2tlYmxlbnlqMDB5czJybnp2ZGtocW56NyJ9.34ewrGgs6xxyM5yRfy6zbQ";
-    var map = new mapboxgl.Map({
-        container: 'map',
-        style: 'mapbox://styles/mapbox/streets-v9',
-        zoom: 10,
-        center: [-98.486990, 29.411230]
-    });
-//---------------------------------
-    // var marker = new mapboxgl.Marker()
-    //     .setLngLat([-98.486990, 29.411230])
-    //     .addTo(map);
 
-    mapboxgl.accessToken = 'pk.eyJ1IjoiY291cnRuZXluaWNvbGVob2xsZXkiLCJhIjoiY2tlYmxlbnlqMDB5czJybnp2ZGtocW56NyJ9.34ewrGgs6xxyM5yRfy6zbQ';
+    mapboxgl.accessToken = MAPBOX_TOKEN;
     var start = [-98.486990, 29.411230];
     var end = [-98.486990, 29.411230];
     var map = new mapboxgl.Map({
@@ -70,7 +71,7 @@
 
     var isAtStart = true;
 
-    document.getElementById('fly').addEventListener('click', function() {
+    document.getElementById('fly1').addEventListener('click', function() {
 // depending on whether we're currently at point a or b, aim for
 // point a or b
         var target = isAtStart ? end : start;
@@ -82,14 +83,14 @@
 // These options control the ending camera position: centered at
 // the target, at zoom level 9, and north up.
             center: target,
-            zoom: 15,
+            zoom: 18,
             bearing: 0,
 
 // These options control the flight curve, making it move
 // slowly and zoom out almost completely before starting
 // to pan.
-            speed: 0.4, // make the flying slow
-            curve: 2, // change the speed at which it zooms out
+            speed: 0.5, // make the flying slow
+            curve: 3, // change the speed at which it zooms out
 
 // This can be any easing function: it takes a number between
 // 0 and 1 and returns another number between 0 and 1.
@@ -101,6 +102,30 @@
             essential: true
         });
     });
+//-----------------------------------------
+
+    map.on('load', function() {
+        map.setPaintProperty('building', 'fill-color', [
+            'interpolate',
+            ['exponential', 0.5],
+            ['zoom'],
+            17,
+            '#f8cda0',
+            22,
+            '#f58900'
+        ]);
+
+        map.setPaintProperty('building', 'fill-opacity', [
+            'interpolate',
+            ['exponential', 0.5],
+            ['zoom'],
+            15,
+            0,
+            22,
+            1
+        ]);
+    });
+
 
 //-----------------------------------------
 
@@ -112,7 +137,7 @@
                 if (error) throw error;
                 map.addImage('custom-marker', image);
 // Add a GeoJSON source with a point.
-                var blissMarker = map.addSource('points', {
+                map.addSource('points', {
                     'type': 'geojson',
                     'data': {
                         'type': 'FeatureCollection',
@@ -125,6 +150,17 @@
                                     'coordinates': [
                                         -98.486990,
                                          29.411230
+                                    ]
+                                }
+                            },
+                            {
+                                'type': 'Feature',
+                                'properties': {},
+                                'geometry': {
+                                    'type': 'Point',
+                                    'coordinates': [
+                                        -98.490490,
+                                        29.417260
                                     ]
                                 }
                             },
@@ -150,6 +186,10 @@
             map.flyTo({
                 center: e.features[0].geometry.coordinates
             });
+            var popup = new mapboxgl.Popup()
+                .setLngLat([-98.486990, 29.411230])
+                .setHTML("<strong>Bliss</strong><br><img id='blissImg' src='Img/bliss.jpg'>")
+                .addTo(map)
         });
 
 // Change the cursor to a pointer when the it enters a feature in the 'symbols' layer.
@@ -163,10 +203,6 @@
         });
     });
 
-    var popup = new mapboxgl.Popup()
-        .setLngLat([-98.486990, 29.411230])
-        .setHTML("<strong>Bliss</strong>")
-        .addTo(map)
 
 </script>
 

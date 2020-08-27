@@ -5,6 +5,10 @@
     <title>Mapbox API Lesson</title>
     <!-- Mapbox CSS -->
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+    <!-- Mapbox JS -->
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+    <!---- link keys ---->
+    <script src="js/keys.js"></script>
     <!-- Custom CSS -->
     <style>
         #map {
@@ -20,12 +24,10 @@
 <!-- The HTML element that serves as the Mapbox container -->
 <div id='map'></div>
 
-<!-- Mapbox JS -->
-<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
 
-<!-- Custom JS -->
+<!--Custom JS-->
 <script>
-    mapboxgl.accessToken = "pk.eyJ1IjoiY291cnRuZXluaWNvbGVob2xsZXkiLCJhIjoiY2tlYmxlbnlqMDB5czJybnp2ZGtocW56NyJ9.34ewrGgs6xxyM5yRfy6zbQ";
+    mapboxgl.accessToken = MAPBOX_TOKEN;
     var map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v9',
@@ -37,10 +39,6 @@
         .setLngLat([-98.4916, 29.4260])
         .addTo(map);
 
-    // var popup = new mapboxgl.Popup()
-    //     .setLngLat([-98.489615, 29.426827])
-    //     .setHTML("<p>Codeup Rocks!</p>")
-    //     .addTo(map)
 
     var alamoPopup = new mapboxgl.Popup()
         .setHTML("<p>Remember The Alamo!</p>")
@@ -48,7 +46,7 @@
 
     marker.setPopup(alamoPopup)
 
-</script>
+<!--</script>-->
 
 </body>
 </html>
