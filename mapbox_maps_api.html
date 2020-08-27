@@ -5,6 +5,10 @@
     <title>Mapbox Maps API</title>
     <!-- Mapbox CSS -->
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+    <!-- Mapbox JS -->
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+    <!-- Mapbox Geocoder Util Methods -->
+    <script src="js/mapbox-geocoder-utils.js"></script>
     <!---- link keys ---->
     <script src="js/keys.js"></script>
     <!-- Custom CSS -->
@@ -36,6 +40,10 @@
             width: 300px;
             height: 120px;
         }
+        #stationImg {
+            width: 50px;
+            height: 50px;
+        }
     </style>
 </head>
 <body>
@@ -50,11 +58,6 @@
 <!-- The HTML element that serves as the Mapbox container -->
 <div id='map'></div>
 
-<!-- Mapbox JS -->
-<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
-
-<!-- Mapbox Geocoder Util Methods -->
-<script src="js/mapbox-geocoder-utils.js"></script>
 
 <!-- Custom JS -->
 <script>
@@ -66,10 +69,13 @@
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v11',
         center: start,
-        zoom: 10
+        zoom: 12.5
     });
 
     var isAtStart = true;
+    var start2 = [-98.490490, 29.417260];
+    var end2 = [-98.490490, 29.417260];
+
 
     document.getElementById('fly1').addEventListener('click', function() {
 // depending on whether we're currently at point a or b, aim for
@@ -102,7 +108,39 @@
             essential: true
         });
     });
-//-----------------------------------------
+//------------------------------------------------------
+    document.getElementById('fly2').addEventListener('click', function() {
+// depending on whether we're currently at point a or b, aim for
+// point a or b
+        var target = isAtStart ? end2 : start2;
+
+// and now we're at the opposite point
+        isAtStart = !isAtStart;
+
+        map.flyTo({
+// These options control the ending camera position: centered at
+// the target, at zoom level 9, and north up.
+            center: target,
+            zoom: 18,
+            bearing: 0,
+
+// These options control the flight curve, making it move
+// slowly and zoom out almost completely before starting
+// to pan.
+            speed: 0.5, // make the flying slow
+            curve: 3, // change the speed at which it zooms out
+
+// This can be any easing function: it takes a number between
+// 0 and 1 and returns another number between 0 and 1.
+            easing: function(t) {
+                return t;
+            },
+
+// this animation is considered essential with respect to prefers-reduced-motion
+            essential: true
+        });
+    });
+//------------------------------------------------------
 
     map.on('load', function() {
         map.setPaintProperty('building', 'fill-color', [
@@ -185,12 +223,21 @@
         map.on('click', 'symbols', function(e) {
             map.flyTo({
                 center: e.features[0].geometry.coordinates
+
             });
+        });
+        map.on('click', 'symbols', function (){
             var popup = new mapboxgl.Popup()
                 .setLngLat([-98.486990, 29.411230])
                 .setHTML("<strong>Bliss</strong><br><img id='blissImg' src='Img/bliss.jpg'>")
                 .addTo(map)
-        });
+        })
+        map.on('click', 'symbols', function (){
+            var popup2 = new mapboxgl.Popup()
+                .setLngLat([-98.490490, 29.417260])
+                .setHTML("<strong>Station Cafe</strong><br><img id='stationImg' src='Img/station-cafe-sand.jpg>")
+                .addTo(map)
+        })
 
 // Change the cursor to a pointer when the it enters a feature in the 'symbols' layer.
         map.on('mouseenter', 'symbols', function() {
