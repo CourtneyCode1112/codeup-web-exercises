@@ -15,10 +15,28 @@
     </style>
 </head>
 <body>
+<style>
+    #fly {
+        display: block;
+        position: relative;
+        margin: 0px auto;
+        width: 50%;
+        height: 40px;
+        padding: 10px;
+        border: none;
+        border-radius: 3px;
+        font-size: 12px;
+        text-align: center;
+        color: #fff;
+        background: #ee8a65;
+    }
+</style>
 <h1>My First Mapbox Map!</h1>
 
 <!-- The HTML element that serves as the Mapbox container -->
 <div id='map'></div>
+<br />
+<button id="fly">Fly</button>
 
 <!-- Mapbox JS -->
 <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
@@ -33,8 +51,118 @@
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v9',
         zoom: 10,
-        center: [-98.4916, 29.4252]
+        center: [-98.486990, 29.411230]
     });
+//---------------------------------
+    // var marker = new mapboxgl.Marker()
+    //     .setLngLat([-98.486990, 29.411230])
+    //     .addTo(map);
+
+    mapboxgl.accessToken = 'pk.eyJ1IjoiY291cnRuZXluaWNvbGVob2xsZXkiLCJhIjoiY2tlYmxlbnlqMDB5czJybnp2ZGtocW56NyJ9.34ewrGgs6xxyM5yRfy6zbQ';
+    var start = [-98.486990, 29.411230];
+    var end = [-98.486990, 29.411230];
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: start,
+        zoom: 10
+    });
+
+    var isAtStart = true;
+
+    document.getElementById('fly').addEventListener('click', function() {
+// depending on whether we're currently at point a or b, aim for
+// point a or b
+        var target = isAtStart ? end : start;
+
+// and now we're at the opposite point
+        isAtStart = !isAtStart;
+
+        map.flyTo({
+// These options control the ending camera position: centered at
+// the target, at zoom level 9, and north up.
+            center: target,
+            zoom: 15,
+            bearing: 0,
+
+// These options control the flight curve, making it move
+// slowly and zoom out almost completely before starting
+// to pan.
+            speed: 0.2, // make the flying slow
+            curve: 2, // change the speed at which it zooms out
+
+// This can be any easing function: it takes a number between
+// 0 and 1 and returns another number between 0 and 1.
+            easing: function(t) {
+                return t;
+            },
+
+// this animation is considered essential with respect to prefers-reduced-motion
+            essential: true
+        });
+    });
+
+//-----------------------------------------
+
+    map.on('load', function() {
+// Add an image to use as a custom marker
+        map.loadImage(
+            'https://docs.mapbox.com/mapbox-gl-js/assets/custom_marker.png',
+            function(error, image) {
+                if (error) throw error;
+                map.addImage('custom-marker', image);
+// Add a GeoJSON source with 3 points.
+                map.addSource('points', {
+                    'type': 'geojson',
+                    'data': {
+                        'type': 'FeatureCollection',
+                        'features': [
+                            {
+                                'type': 'Feature',
+                                'properties': {},
+                                'geometry': {
+                                    'type': 'Point',
+                                    'coordinates': [
+                                        -98.486990,
+                                         29.411230
+                                    ]
+                                }
+                            },
+
+                        ]
+                    }
+                });
+
+// Add a symbol layer
+                map.addLayer({
+                    'id': 'symbols',
+                    'type': 'symbol',
+                    'source': 'points',
+                    'layout': {
+                        'icon-image': 'custom-marker'
+                    }
+                });
+            }
+        );
+
+// Center the map on the coordinates of any clicked symbol from the 'symbols' layer.
+        map.on('click', 'symbols', function(e) {
+            map.flyTo({
+                center: e.features[0].geometry.coordinates
+            });
+        });
+
+// Change the cursor to a pointer when the it enters a feature in the 'symbols' layer.
+        map.on('mouseenter', 'symbols', function() {
+            map.getCanvas().style.cursor = 'pointer';
+        });
+
+// Change it back to a pointer when it leaves.
+        map.on('mouseleave', 'symbols', function() {
+            map.getCanvas().style.cursor = '';
+        });
+    });
+
 </script>
 
 
