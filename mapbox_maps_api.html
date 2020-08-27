@@ -136,7 +136,6 @@
         });
     });
 //------------------------------------------------------
-    //------------------------------------------------------
     document.getElementById('fly3').addEventListener('click', function() {
 
         var target = isAtStart ? end3 : start3;
@@ -182,109 +181,36 @@
         ]);
     });
 
-
 //-----------------------------------------
 
-    map.on('load', function() {
-// Add an image to use as a custom marker
-        map.loadImage(
-            'https://docs.mapbox.com/mapbox-gl-js/assets/custom_marker.png',
-            function(error, image) {
-                if (error) throw error;
-                map.addImage('custom-marker', image);
-// Add a GeoJSON source with a point.
-                map.addSource('points', {
-                    'type': 'geojson',
-                    'data': {
-                        'type': 'FeatureCollection',
-                        'features': [
-                            {
-                                'type': 'Feature',
-                                'id': 'restOne',
-                                'properties': {},
-                                'geometry': {
-                                    'type': 'Point',
-                                    'coordinates': [
-                                        -98.486990,
-                                         29.411230
-                                    ]
-                                }
-                            },
-                            {
-                                'type': 'Feature',
-                                'id': 'restTwo',
-                                'properties': {},
-                                'geometry': {
-                                    'type': 'Point',
-                                    'coordinates': [
-                                        -98.490490,
-                                        29.417260
-                                    ]
-                                }
-                            },
-                            {
-                                'type': 'Feature',
-                                'properties': {},
-                                'geometry': {
-                                    'type': 'Point',
-                                    'coordinates': [
-                                        -97.958290,
-                                        26.151080
-                                    ]
-                                }
-                            },
 
-                        ]
-                    }
-                });
+    var locations = [
+        {
+            name: 'Bliss',
+            info: "<strong>Bliss</strong><br><img id='blissImg' src='Img/bliss.jpg'>",
+            coordinates: [-98.486990, 29.411230]
+        },
+        {
+            name: 'Station Cafe',
+            info: "<strong>Station Cafe</strong><br> <img id='stationImg'src='Img/station-cafe-sand.jpg'>",
+            coordinates: [-98.490490, 29.417260]
 
-// Add a symbol layer
-                map.addLayer({
-                    'id': 'symbols',
-                    'type': 'symbol',
-                    'source': 'points',
-                    'layout': {
-                        'icon-image': 'custom-marker'
-                    }
-                });
-            }
-        );
+        },
+        {
+            name: "Nana's Taqueria",
+            info: "<strong>Nana's Taqueria</strong><br> <img id='nanaImg'src='Img/nanaImg.jpg'>",
+            coordinates: [-97.958290, 26.151080]
+        }
+    ]
 
-// Center the map on the coordinates of any clicked symbol from the 'symbols' layer.
-        map.on('click', 'symbols', function(e) {
-            map.flyTo({
-                center: e.features[0].geometry.coordinates
-            });
-        });
-        map.on('click', 'symbols', function (e){
+    locations.forEach(function(location){
             var popup = new mapboxgl.Popup()
-                .setLngLat([-98.486990, 29.411230])
-                .setHTML("<strong>Bliss</strong><br><img id='blissImg' src='Img/bliss.jpg'>")
+                .setHTML(location.info)
+            var marker = new mapboxgl.Marker()
+                .setLngLat(location.coordinates)
                 .addTo(map)
-        })
-        map.on('click', 'symbols', function (){
-            var popup2 = new mapboxgl.Popup()
-                .setLngLat([-98.490490, 29.417260])
-                .setHTML("<strong>Station Cafe</strong><br> <img id='stationImg'src='Img/station-cafe-sand.jpg'>")
-                .addTo(map)
-        })
-        map.on('click', 'symbols', function (){
-            var popup3 = new mapboxgl.Popup()
-                .setLngLat([-97.958290, 26.151080])
-                .setHTML("<strong>Nana's Taqueria</strong><br> <img id='nanaImg'src='Img/nanaImg.jpg'>")
-                .addTo(map)
-        })
-
-// Change the cursor to a pointer when the it enters a feature in the 'symbols' layer.
-        map.on('mouseenter', 'symbols', function() {
-            map.getCanvas().style.cursor = 'pointer';
+                .setPopup(popup);
         });
-
-// Change it back to a pointer when it leaves.
-        map.on('mouseleave', 'symbols', function() {
-            map.getCanvas().style.cursor = '';
-        });
-    });
 
 
 </script>
