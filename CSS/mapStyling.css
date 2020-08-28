@@ -1,3 +1,6 @@
+body {
+    background-color: #d9d3d3;
+}
 #map {
     /* the width and height may be set to any size */
     width: 95%;
@@ -38,5 +41,9 @@
 #zoomSelect, #searchBar, #removeMarkersBox {
     text-align: center;
     margin: 10px 0;
+}
+
+h1 {
+    text-align: center;
 }
 
