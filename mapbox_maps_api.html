@@ -224,11 +224,12 @@
                 .addTo(map)
                 .setPopup(popup)
             console.log(marker)
+             if (document.getElementById('removeMarkers').addEventListener('click', function() {
+                 marker.remove();
+             }));
         });
 
-    document.getElementById('removeMarkers').addEventListener('click', function() {
-        locations.visibilty = 'hidden';
-    });
+
 
 //remove markers
 
