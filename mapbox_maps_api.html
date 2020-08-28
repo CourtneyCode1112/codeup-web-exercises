@@ -23,14 +23,33 @@
     <button id="fly2">Restaurant #2</button>
     <button id="fly3">Restaurant #3</button>
 </section>
-<br>
 
+<section id="zoomSelect">
+<label for="userZoomSelect">Zoom Select</label>
+    <select class="options" name="userZoomSelect" id="userZoomSelect">
+        <option id="option1" value="5">Zoom 5</option>
+        <option id="option2" value="15">Zoom 15</option>
+        <option id="option3" value="20">Zoom 20</option>
+    </select>
+</section>
+
+<section id="searchBar">
+<div>
+    <label for="userSearch">Search Address</label>
+    <input type="text" name="address" id="userSearch" placeholder="Enter Address">
+    <button type="button" id="search">Search</button>
+</div>
+</section>
+
+<section id="removeMarkersBox">
+    <button id="removeMarkers">Remove Markers</button>
+</section>
 <!-- The HTML element that serves as the Mapbox container -->
 <div id='map'></div>
 
 <!-- Custom JS -->
-<script>
 
+<script>
     mapboxgl.accessToken = MAPBOX_TOKEN;
     var start = [-98.486990, 29.411230];
     var end = [-98.486990, 29.411230];
@@ -40,6 +59,36 @@
         center: start,
         zoom: 12.5
     });
+    //REMOVE MARKERS
+
+    // TO SEARCH AND ADD MARKER
+    document.getElementById('search').addEventListener('click', findForUser)
+    function findForUser() {
+        var userInput = document.getElementById('userSearch')
+        geocode(userInput.value, MAPBOX_TOKEN)
+            .then(function (result) {
+                console.log('Geocode for ' + userInput.value + ' is: ' + result);
+                var userMarker = new mapboxgl.Marker()
+                    .setLngLat(result)
+                    .addTo(map)
+                map.setCenter(result);
+                map.setZoom(17);
+            });
+    }
+//TO ZOOM ON USER SELECT
+    var bigSelect = document.querySelector('.options')
+    bigSelect.addEventListener('change', (event) => {
+        if(`${event.target.value}` === '5') {
+            map.setZoom(5)
+        }
+        if(`${event.target.value}` === '15') {
+            map.setZoom(10)
+        }
+        if(`${event.target.value}` === '20') {
+            map.setZoom(15)
+        }
+    });
+
 
     var isAtStart = true;
     var start2 = [-98.490490, 29.417260];
@@ -65,8 +114,8 @@
 // These options control the flight curve, making it move
 // slowly and zoom out almost completely before starting
 // to pan.
-            speed: 0.5, // make the flying slow
-            curve: 3, // change the speed at which it zooms out
+            speed: 1, // make the flying slow
+            curve: 2, // change the speed at which it zooms out
 
 // This can be any easing function: it takes a number between
 // 0 and 1 and returns another number between 0 and 1.
@@ -90,8 +139,8 @@
             zoom: 18,
             bearing: 0,
 
-            speed: 0.5, // make the flying slow
-            curve: 3, // change the speed at which it zooms out
+            speed: 1, // make the flying slow
+            curve: 2, // change the speed at which it zooms out
 
             easing: function(t) {
                 return t;
@@ -112,8 +161,8 @@
             zoom: 18,
             bearing: 0,
 
-            speed: 0.5, // make the flying slow
-            curve: 3, // change the speed at which it zooms out
+            speed: 1, // make the flying slow
+            curve: 2, // change the speed at which it zooms out
 
             easing: function(t) {
                 return t;
@@ -166,15 +215,22 @@
         }
     ]
 
-    locations.forEach(function(location){
+
+         locations.forEach(function(location){
             var popup = new mapboxgl.Popup()
                 .setHTML(location.info)
             var marker = new mapboxgl.Marker()
                 .setLngLat(location.coordinates)
                 .addTo(map)
-                .setPopup(popup);
+                .setPopup(popup)
+            console.log(marker)
         });
 
+    document.getElementById('removeMarkers').addEventListener('click', function() {
+        locations.visibilty = 'hidden';
+    });
+
+//remove markers
 
 </script>
 
