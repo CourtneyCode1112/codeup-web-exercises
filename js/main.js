@@ -10,42 +10,6 @@ var roastSelection = document.querySelector('#roast-selection');
 //search function
 var userSelection = document.querySelector('#userSearch');
 var itemsArray = [];
-//Local Storage Code
-localStorage.setItem('itemsArray', JSON.stringify(itemsArray));
-    let itemArray;
-    if(localStorage.getItem('itemsArray') === null) {
-        itemArray = [];
-    } else {
-        itemArray = JSON.parse(localStorage.getItem('itemsArray'));
-    }
-    itemsArray = JSON.parse(localStorage.getItem('itemsArray'));
-
-    itemsArray.push(itemArray);
-    // localStorage.setItem('itemsArray', JSON.stringify(itemsArray));
-    console.log(itemsArray);
-
-
-// let itemsArray = [];
-// localStorage.setItem("addedCoffee", JSON.stringify(itemsArray));
-// var storedCoffee = JSON.parse(localStorage.getItem("addedCoffee"));
-
-// window.localStorage.setItem('addedCoffee', JSON.stringify(itemsArray))
-// var data = JSON.parse(window.localStorage.getItem('addedCoffee'))
-
-
-
-//  <==================================== ADD COFFEE ====================================>
-var createCoffee = document.querySelector('#submit');
-createCoffee.addEventListener('click', function (e) {
-    e.preventDefault();
-    var addCoffeeRoast = document.getElementById("add-coffee");
-    var newCoffeeName = document.getElementById('newInput');
-
-    if (newCoffeeName !== ""){
-        newCoffee(addCoffeeRoast.value, newCoffeeName.value);
-        updateCoffees();
-    }
-});
 
 
 //  <==================================== RENDERING COFFEES ====================================>
@@ -69,7 +33,6 @@ function renderCoffees(coffees) {
 
 //  <============================= FILTER COFFEES AND SEARCH INPUT =============================>
 var updateCoffees = function () {
-    // don't submit the form, we just want to update the data
     var selectedRoast = roastSelection.value;
     var userSelectedCoffee = userSelection.value;
     var filteredCoffees = [];
@@ -85,23 +48,9 @@ var updateCoffees = function () {
 };
 
 
-//  <==================================== CREATE NEW COFFEE ====================================>
-
-var newCoffee = function (type, name) {
-    var newCoffeeObj = {id: coffees.length + 1, name: name, roast: type};
-    console.log(newCoffeeObj);
-    coffees.push(newCoffeeObj);
-    itemsArray.push(newCoffeeObj);
-    console.log(coffees);
-    // var storeAddedCoffee = window.localStorage.setItem('newCoffee', JSON.stringify(newCoffeeObj))
-    // console.log(storeAddedCoffee)
-    // var newData = JSON.parse(window.localStorage.getItem('newCoffee'))
-};
-
-
 //  <==================================== COFFEE TABLE ====================================>
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
-var coffees = [
+let coffees = [
     {id: 1, name: 'Light City', roast: 'Light'},
     {id: 2, name: 'Half City', roast: 'Light'},
     {id: 3, name: 'Cinnamon', roast: 'Light'},
@@ -119,14 +68,59 @@ var coffees = [
 ];
 tbody.innerHTML = renderCoffees(coffees);
 
+//CREATE COFFEE
+//  <==================================== CREATE NEW COFFEE ====================================>
+
+var newCoffee = function (type, name) {
+    var newCoffeeObj = {id: coffees.length + 1, name: name, roast: type};
+    coffees.push(newCoffeeObj);
+    itemsArray.push(newCoffeeObj);
+};
+
+//  <==================================== ADD COFFEE ====================================>
+var addToCoffeeList = document.querySelector('#coffeeList');
+var newCoffeeItem = document.querySelector('#newInput');
+var newCoffeeList = document.getElementById('newCoffeeList')
+addToCoffeeList.addEventListener('click', function (e) {
+    e.preventDefault();
+    var addCoffeeRoast = document.getElementById("add-coffee");
+    var newCoffeeName = document.getElementById('newInput');
+
+    if (newCoffeeName !== ""){
+        newCoffee(addCoffeeRoast.value, newCoffeeName.value);
+        updateCoffees();
+    }
+
+    // Ignore it if the wishlist item is empty
+    if (newCoffeeItem.value.length < 1) return;
+
+    // Add item to wishlist
+    newCoffeeList.innerHTML += '<li>' + newCoffeeItem.value + '</li>';
+
+    // Clear input
+    newCoffeeItem.value = '';
+
+    // Save the list to localStorage
+    localStorage.setItem('newCoffeeItem', JSON.stringify(itemsArray));
+
+},false);
+
+//LOCALSTORAGE
+
+// Check for saved wishlist items
+var saved = JSON.parse(localStorage.getItem('newCoffeeItem'));
+
+// If there are any saved items, update our list
+if (saved) {
+    newCoffee() = saved;
+}
 
 //  <================================== COFFEE EVENT LISTENERS ==================================>
-// var submitButton = document.querySelector('#submit');
-// submitButton.addEventListener('click', updateCoffees);
 
 roastSelection.addEventListener('change', updateCoffees);
 userSelection.addEventListener("keyup", function () {
     updateCoffees(userSelection.value);
 });
+
 
 

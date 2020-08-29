@@ -25,7 +25,7 @@
     </select>
 </form>
 
-<form>
+<form id="coffeeList">
     <label for="add-coffee">Add another Coffee</label>
     <select id="add-coffee">
         <option>All</option>
@@ -34,10 +34,12 @@
         <option>Dark</option>
     </select>
     <input type="text" id="newInput" placeholder="Add Coffee Here">
-    <input type="submit" id="submit">
+    <button type="submit" id="submit">Submit</button>
 </form>
 
-<section id="coffees"></section>
+<section id="coffees">
+    <div id="newlyAdded"></div>
+</section>
 
 <script src="js/main.js"></script>
 </body>
