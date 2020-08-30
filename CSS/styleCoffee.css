@@ -8,6 +8,10 @@
 /*    padding: 5px 10px;*/
 /*}*/
 
+nav {
+    height: 50px;
+}
+
 header {
     position: relative;
     background-color: black;
@@ -55,6 +59,15 @@ header .overlay {
     header video {
         display: none;
     }
+}
+
+.nav-link:hover {
+    text-decoration: none;
+    border: none;
+}
+
+#myTab {
+    border: none;
 }
 
 .topButtons {

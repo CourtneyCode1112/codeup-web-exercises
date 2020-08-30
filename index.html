@@ -14,6 +14,44 @@
 <!--    <link href="https://fonts.googleapis.com/css2?family=Abel&family=Anton&display=swap" rel="stylesheet">-->
 </head>
 <body>
+<!--START OF NAV BAR -->
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand text-muted" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse d-flex" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link text-muted" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+            </li>
+            <li>
+                <nav class="navbar navbar-light bg-light">
+                    <form class="form-inline">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Zip Code" aria-label="Search">
+                        <button class="btn btn-outline-secondary text-body bg-white my-2 my-sm-0" type="submit">Search
+                            stores near you!
+                        </button>
+                    </form>
+                </nav>
+            </li>
+            <li class="sign_up ml-auto d-flex align-items-center">
+                <i class="fas fa-user"></i>
+            </li>
+            <li class="sign_up d-flex align-items-center">
+                <a href="#" class="badge badge-light text-secondary">Sign up</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<!--END OF NAV BAR-->
+<!--------JUMBOVIDEO--------->
 <header>
     <div class="overlay"></div>
     <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
@@ -29,37 +67,29 @@
     </div>
 </header>
 
+<!---ENDOFJUMBOVIDEO--->
+
 <section class="my-5">
     <div class="container">
         <div class="row m-o">
-            <div class="col-md-12 d-flex justify-content-between justify-content-start align-items-center ">
-                <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <div class="col-md-12 d-flex justify-content-center">
+                <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link active" id="coffeeList-tab" data-toggle="tab" href="#coffeeList-tab" role="tab" aria-controls="coffeesList" aria-selected="true"> <button type="button" class="btn topButtons"><img class='topButtons imgBack' alt='coffeebeans' src="Img/coffeebeans.jpg"> About</button></a>
+                        <a class="nav-link active" id="coffeeList-tab" data-toggle="tab" href="#coffeeListTab" role="tab" aria-controls="coffeesList" aria-selected="true"> <button type="button" class="btn topButtons"><img class='topButtons imgBack' alt='coffeebeans' src="Img/coffeebeans.jpg"> Our Coffee</button></a>
                     </li>
-
-<!--                <button type="button" class="btn topButtons"><img class='topButtons imgBack' alt='coffeebeans' src="Img/coffeebeans.jpg"> About</button>-->
-                <button type="button" class="btn topButtons"><img class='topButtons imgBack' alt='coffeebeans' src="Img/coffeeMap.jpg">Locations</button>
-                <button type="button" class="btn topButtons"><img class='topButtons imgBack' alt='coffeebeans' src="Img/coffeebeans.jpg">Contact Us</button>
+                    <li class="nav-item">
+                        <a class="nav-link" id="locations-tab" data-toggle="tab" href="#locationsTab" role="tab" aria-controls="locationsTab" aria-selected="false"><button type="button" class="btn topButtons"><img class='topButtons imgBack' alt='coffeebeans' src="Img/coffeeMap.jpg">Locations</button></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="contactUs-tab" data-toggle="tab" href="#contactTab" role="tab" aria-controls="contactTab" aria-selected="false"><button type="button" class="btn topButtons"><img class='topButtons imgBack' alt='coffeebeans' src="Img/contact2.jpg">Contact Us</button></a>
+                    </li>
             </div>
         </div>
     </div>
 </section>
 
+<section id="coffeeListTab">
 <h1>Coffee!</h1>
-<!--------------------------CARDS------------>
-<!--<ul class="nav nav-tabs" id="myTab" role="tablist">-->
-<!--    <li class="nav-item">-->
-<!--        <a class="nav-link active" id="coffeeList-tab" data-toggle="tab" href="#coffeeList-tab" role="tab" aria-controls="coffeesList" aria-selected="true"><span class="badge badge-pill badge-secondary mr-1">1</span>Size and Crust</a>-->
-<!--    </li>-->
-<!--    <li class="nav-item">-->
-<!--        <a class="nav-link" id="cheesesauce-tab" data-toggle="tab" href="#cheesesauce" role="tab" aria-controls="cheesesauce" aria-selected="false"><span class="badge badge-pill badge-secondary mr-1">2</span>Cheese and Sauce</a>-->
-<!--    </li>-->
-<!--    <li class="nav-item">-->
-<!--        <a class="nav-link" id="toppings-tab" data-toggle="tab" href="#toppings" role="tab" aria-controls="toppings" aria-selected="false"><span class="badge badge-pill badge-secondary mr-1">3</span>Toppings</a>-->
-<!--    </li>-->
-<!--</ul>-->
-<!--<div class="tab-content mb-4" id="myTabContent">-->
 
 <section id="searchBar">
     <div>
@@ -92,6 +122,7 @@
 
 <section id="coffees">
     <ul id="newlyAdded"></ul>
+</section>
 </section>
 
 
