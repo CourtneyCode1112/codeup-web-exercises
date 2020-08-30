@@ -91,29 +91,7 @@ addToCoffeeList.addEventListener('submit', function (e) {
         updateCoffees();
     }
 
-    // Ignore it if the wishlist item is empty
-    if (newCoffeeItem.value.length < 1) return;
-
-    // Add item to wishlist
-    newCoffeeList.innerHTML += '<li>' + newCoffee(addCoffeeRoast.value, newCoffeeName.value) + '</li>';
-
-    // Clear input
-    newCoffeeItem.value = '';
-
-    // Save the list to localStorage
-    localStorage.setItem('newCoffeeItem', newCoffeeList.innerHTML);
-
-},false);
-
-//LOCALSTORAGE
-
-// Check for saved wishlist items
-var saved = localStorage.getItem('newCoffeeItem');
-
-// If there are any saved items, update our list
-if (saved) {
-    newCoffeeList.innerHTML = saved;
-}
+},);
 
 //  <================================== COFFEE EVENT LISTENERS ==================================>
 
