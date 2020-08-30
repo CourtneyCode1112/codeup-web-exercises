@@ -59,16 +59,19 @@ header .overlay {
 
 .topButtons {
     border-radius: 50%;
-    border-width: 5px;
     width: 135px;
     height: 135px;
     border-color: sienna;
     color: sienna;
     font-size: 23px;
+    padding: 0;
 }
 
 .topButtons:hover {
     color: saddlebrown;
     font-weight: bold;
-    /*background-image: ;*/
+}
+
+.imgBack {
+    position: relative;
 }
