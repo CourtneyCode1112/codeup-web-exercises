@@ -15,3 +15,13 @@ function fizzbuzz(num) {
 }
 
 fizzbuzz(30);
+
+function charCount(myChar, str) {
+    var counter = 0;
+    for (var i = 0; i < str.length; i++) {
+        if (str.charAt(i) === myChar) {
+            counter++
+        }
+    }
+    return counter
+}
