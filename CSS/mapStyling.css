@@ -1,12 +1,14 @@
 body {
     background-color: #d9d3d3;
 }
+
 #map {
     /* the width and height may be set to any size */
     width: 95%;
     height: 600px;
     margin: 0 auto;
 }
+
 #fly1, #fly2, #fly3 {
     display: inline-block;
     position: relative;
