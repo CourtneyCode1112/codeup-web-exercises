@@ -42,16 +42,34 @@
         "use strict";
 
         $().ready(function () {
-            // var content = $("#trailHeader").html()
+            // // var content = $("#trailHeader").html()
+            // // alert(content);
+            // // $(".codeup").css("border", "1px solid red");
+            // $("li").css("font-size", "20px");
+            // // $("h1").css("background-color", "#fbd46d");
+            // // $("p").css("background-color", "#fbd46d");
+            // // $("li").css("background-color", "#fbd46d");
+            // $("h1, p, li").css("background-color", "#fbd46d");
+            // var content = $("h1").html();
             // alert(content);
-            // $(".codeup").css("border", "1px solid red");
-            $("li").css("font-size", "20px");
-            // $("h1").css("background-color", "#fbd46d");
-            // $("p").css("background-color", "#fbd46d");
-            // $("li").css("background-color", "#fbd46d");
-            $("h1, p, li").css("background-color", "#fbd46d");
-            var content = $("h1").html();
-            alert(content);
+
+            $("h1").click(function() {
+                $(this).css("background-color", "#df5e88");
+            });
+
+            $('p').dblclick(function(e) {
+                $(this).css("font-size", "18px");;
+            });
+
+            $('li').hover(
+                function() {
+                    $(this).css('color', 'red');
+                },
+                function() {
+                    $(this).css('color', 'black');
+                }
+            );
+
         });
     })();
 
