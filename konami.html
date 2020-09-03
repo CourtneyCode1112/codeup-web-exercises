@@ -3,16 +3,56 @@
 <head>
     <title>Konami Code</title>
 </head>
-<body>
-<h1>Konami Code</h1>
+<style>
+    h2 {
+        background-color: yellow;
+        color: #66040d;
+        font-size: 50px;
+        text-align: center;
+    }
+</style>
+<body id="backgroundImage">
 
-<script src="/js/jquery.js"></script>
+<h1>Konami Code</h1>
+<br>
+<h2 id="winAlert">YOU HAVE ADDED 30 LIVES!!!</h2>
+
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
 <script>
-    "use strict";
+    (function () {
+        "use strict";
+
+        $().ready(function () {
+
+    $("#backgroundImage").css("background-image", "url('Img/superMarioBackground.jpg')");
+    $("#winAlert").hide();
 
     $(document).keyup(function(event){
         console.log(event.keyCode);
     });
+
+    function konamiDecoder() {
+        var userInput = ''
+        var code = "3838404037393739666513"
+        var audio = new Audio('audio/smb_powerup.wav');
+        $(document).keydown(function () {
+            userInput += ("" + event.keyCode);
+            if (userInput === code) {
+                audio.play();
+                $("#winAlert").show();
+                // alert("You have added 30 lives!");
+            }
+        });
+    }
+    konamiDecoder();
+
+        });
+
+    })();
+
 </script>
 </body>
 </html>
