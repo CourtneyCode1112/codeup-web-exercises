@@ -3,24 +3,44 @@
 <head>
     <title>Konami Code</title>
 </head>
+
 <style>
     h2 {
-        background-color: yellow;
-        color: #66040d;
+        background-color: #e21111;
+        color: #ffffff;
         font-size: 50px;
         text-align: center;
+        margin: 0;
     }
+
+    .marioBroGif {
+        height: 150px;
+        width: 150px;
+        margin-top: 6px;
+    }
+
+    div {
+        text-align: center;
+    }
+
 </style>
 <body id="backgroundImage">
 
 <h1>Konami Code</h1>
-<br>
-<h2 id="winAlert">YOU HAVE ADDED 30 LIVES!!!</h2>
+
+<h2 class="winAlert">YOU HAVE ADDED 30 LIVES!!!</h2>
+<div class="winAlert">
+<img class="marioBroGif" src="video/mariobro.gif">
+</div>
+<div class="loseAlert">
+    <h2>SORRY, YOU LOSE</h2>
+    <img src="video/marioLose.gif">
+</div>
+
 
 
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"
         integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-
 <script>
     (function () {
         "use strict";
@@ -28,7 +48,8 @@
         $().ready(function () {
 
     $("#backgroundImage").css("background-image", "url('Img/superMarioBackground.jpg')");
-    $("#winAlert").hide();
+    $(".winAlert").hide();
+    $(".loseAlert").hide();
 
     $(document).keyup(function(event){
         console.log(event.keyCode);
@@ -38,12 +59,16 @@
         var userInput = ''
         var code = "3838404037393739666513"
         var audio = new Audio('audio/smb_powerup.wav');
+        var audioLose = new Audio('audio/smb_gameover.wav')
         $(document).keydown(function () {
             userInput += ("" + event.keyCode);
             if (userInput === code) {
                 audio.play();
-                $("#winAlert").show();
+                $(".winAlert").show();
                 // alert("You have added 30 lives!");
+            } else if (userInput !== code && userInput.length > 22){
+                audioLose.play()
+                $(".loseAlert").show();
             }
         });
     }
@@ -54,5 +79,7 @@
     })();
 
 </script>
+
+
 </body>
 </html>
