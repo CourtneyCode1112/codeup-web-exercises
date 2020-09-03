@@ -5,10 +5,33 @@
     <title>Learning JQuery</title>
 </head>
 <body>
-<h1>Learning jQuery</h1>
-<input id="input" type="text">
-<button id="btn">Click</button>
-<section id="output"></section>
+<h1 class="codeup">JQuery Exercise</h1>
+
+<div class="codeup">
+    <h2 id="trailHeader">Greenway Trails of San Antonio</h2>
+</div>
+
+<p id="infoParagraph">
+    The Howard W. Peak Greenway Trail System (Greenway) is a growing network of approximately 80 miles of developed multi-use and accessible trails. The Greenway trails wind through natural landscapes along many of San Antonio’s waterways.
+
+</p>
+
+<div class="codeup">
+    <h4 id="listHeader">HOWARD W. PEAK GREENWAY TRAIL SYSTEMS:</h4>
+    <ul id="myList">
+        <li>Leon Creek Trail</li>
+        <li class="lineSkip">Missions Trail</li>
+        <li>Salado Creek Trail</li>
+        <li class="lineSkip">Medina River Trail</li>
+    </ul>
+</div>
+<br>
+<div>
+    <p>
+        VISIT THE TRAILS TODAY!
+    </p>
+</div>
+
 
 
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"
@@ -19,8 +42,16 @@
         "use strict";
 
         $().ready(function () {
-            $("#output").html("<h2>Hello World</h2>");
-            alert("The DOM has finished loading!")
+            // var content = $("#trailHeader").html()
+            // alert(content);
+            // $(".codeup").css("border", "1px solid red");
+            $("li").css("font-size", "20px");
+            // $("h1").css("background-color", "#fbd46d");
+            // $("p").css("background-color", "#fbd46d");
+            // $("li").css("background-color", "#fbd46d");
+            $("h1, p, li").css("background-color", "#fbd46d");
+            var content = $("h1").html();
+            alert(content);
         });
     })();
 
