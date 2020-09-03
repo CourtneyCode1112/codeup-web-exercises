@@ -94,3 +94,13 @@ function convertNameToObject(string) {
 }
 
 console.log(convertNameToObject("herman little"));
+
+function avg(array) {
+    var total = 0;
+    for(var i = 0; i < array.length; i++) {
+            total += array[i];
+        }
+    return total / array.length;
+}
+
+console.log(avg([2, 2, 2]));
