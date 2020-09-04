@@ -65,7 +65,7 @@
             if (userInput === code) {
                 audio.play();
                 $(".winAlert").show();
-            } else if (userInput !== code && userInput.length > 22){
+            } else if (userInput.length > 22){
                 audioLose.play()
                 $(".loseAlert").show();
             }
