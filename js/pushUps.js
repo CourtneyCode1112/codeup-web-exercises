@@ -104,3 +104,4 @@ function avg(array) {
 }
 
 console.log(avg([2, 2, 2]));
+
