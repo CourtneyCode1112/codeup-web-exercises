@@ -33,7 +33,7 @@
 <img class="marioBroGif" src="video/mariobro.gif">
 </div>
 <div class="loseAlert">
-    <h2>SORRY, YOU LOSE</h2>
+    <h2>SORRY, TRY AGAIN</h2>
     <img src="video/marioLose.gif">
 </div>
 
@@ -65,7 +65,6 @@
             if (userInput === code) {
                 audio.play();
                 $(".winAlert").show();
-                // alert("You have added 30 lives!");
             } else if (userInput !== code && userInput.length > 22){
                 audioLose.play()
                 $(".loseAlert").show();
