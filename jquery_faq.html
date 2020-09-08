@@ -7,10 +7,21 @@
         .invisible {
             visibility: hidden;
         }
+        #newsletterHide {
+            vertical-align: super;
+            font-size: smaller;
+        }
 
     </style>
 </head>
 <body>
+
+<div id="newsletterHeader">
+    <h1>Would you like to sign up for our newsletter?<sub id="newsletterHide">x</sub></h1>
+</div>
+
+<h2><a href="#">Register for the site here!</a></h2>
+
 <h1>NATIONAL PARK FAQ</h1>
 
 <dl>
@@ -130,9 +141,21 @@
                 $(this).next('ul').css("font-weight", "bold")
             })
 
+            $("ul").hide();
+            $("h3").click(function () {
+                $(this).next('ul').slideToggle();
+            })
+
             $("ul").click(function () {
                 $(this).children().first().css("background-color", "#67aeec")
             })
+
+            $("#newsletterHide").click(function () {
+                $("#newsletterHeader").hide();
+            })
+
+
+            $("h2").hide().fadeIn(8000)
 
 
         });
