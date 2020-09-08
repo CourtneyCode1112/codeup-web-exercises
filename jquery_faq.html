@@ -8,18 +8,28 @@
           integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <title>jQuery FAQ</title>
     <style>
+        body {
+            position: relative;
+        }
         .invisible {
-            visibility: hidden;
+            display: none;
         }
 
-        #newsletterHide {
+        #newsletterHide, #registerHide {
             vertical-align: top;
-            font-size: 25px;
+            font-size: 20px;
         }
 
         .pics {
             height: 250px;
             width: 250px;
+        }
+        h2 {
+            background-color: #fafa9d;
+            text-align: center;
+        }
+        a:hover {
+            text-decoration: none;
         }
 
     </style>
@@ -30,7 +40,7 @@
         <h1 class="alert alert-info d-flex justify-content-center">Would you like to sign up for our newsletter?<sub id="newsletterHide">x</sub></h1>
     </div>
 
-    <h2 class="my-4"><a href="#">Register for the site here!</a></h2>
+    <h2 class="my-4"><a href="#">Register for the site here!<sub id="registerHide">x</sub></a></h2>
 
 
     <h1>NATIONAL PARK FAQ</h1>
@@ -179,17 +189,18 @@
             })
 
             $("ul").click(function () {
-                $(this).children().first().css("background-color", "#67aeec")
+                $(this).children().first().css("color", "#67aeec")
             })
 
             $("#newsletterHide").click(function () {
                 $("#newsletterHeader").hide();
             })
 
-            $("h2").hide().fadeIn(8000)
-            // $('h2').hide('bs.modal', function () {
-            //     $('h2').fadeIn(10000)
-            // })
+            $("h2").hide().delay(8000).fadeIn(1000)
+            $("#registerHide").click(function () {
+                $("h2").hide();
+            })
+
 
 
             $("#pic1").click(function () {
@@ -204,7 +215,7 @@
                 var newPic2 = $("#pic2").html()
                 var newPic3 = $("#pic3").html()
                 var top = Math.round(Math.random());
-                if (top == 1) {
+                if (top === 1) {
                     $(this).html(newPic1)
                     $("#pic1").html(newPic2)
                 } else if (top === 0) {

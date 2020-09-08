@@ -1,0 +1,29 @@
+body {
+    position: relative;
+    background-image: url("Img/toolsBackground.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+@font-face {
+    font-family: toolFont;
+    src: url(fonts/SansPlateCaps.ttf);
+}
+
+h1 {
+    font-family: toolFont;
+    font-size: 100px;
+    text-shadow: 2px 2px 40px #ffffff;
+}
+
+#tableOfTools {
+    margin-top: 225px;
+}
+
+table {
+    box-shadow: 2px 2px 40px #fcf9f9;
+}
+
+#pill1 {
+    position: absolute;
+}
