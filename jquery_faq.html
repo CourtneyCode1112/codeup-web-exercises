@@ -15,13 +15,15 @@
 
 <dl>
     <dt>How old is the National Park System?</dt>
-    <dd class="invisible">The National Park Service was created by an act signed by President Woodrow Wilson on August 25, 1916.
+    <dd class="invisible">The National Park Service was created by an act signed by President Woodrow Wilson on August
+        25, 1916.
         Yellowstone National Park was established by an act signed by President Ulysses S. Grant on March 1, 1872, as
         the nation's first national park.
     </dd>
     <br>
     <dt>How many areas are in the National Park System?</dt>
-    <dd class="invisible">The system includes 419 areas covering more than 85 million acres in every state, the District of Columbia,
+    <dd class="invisible">The system includes 419 areas covering more than 85 million acres in every state, the District
+        of Columbia,
         American Samoa, Guam, Puerto Rico, and the Virgin Islands. These areas include national parks, monuments,
         battlefields, military parks, historical parks, historic sites, lakeshores, seashores, recreation areas, scenic
         rivers and trails, and the White House.
@@ -40,19 +42,65 @@
     <dd class="invisible">Great Smoky Mountains National Park: 12.5 million visits in 2019.</dd>
     <br>
     <dt>Can I bring my pet to a national park?</dt>
-    <dd class="invisible">Some national parks welcome pets—in developed areas, on many trails and campgrounds, and in some lodging facilities.</dd>
+    <dd class="invisible">Some national parks welcome pets—in developed areas, on many trails and campgrounds, and in
+        some lodging facilities.
+    </dd>
     <br>
     <dt>What do I need to know about driving off road in national parks?</dt>
-    <dd class="invisible">Before you head out, check with the national parks that you intend to visit. In many national parks, off-road driving is illegal. Where off-road driving is allowed, the National Park Service regulates it.</dd>
+    <dd class="invisible">Before you head out, check with the national parks that you intend to visit. In many national
+        parks, off-road driving is illegal. Where off-road driving is allowed, the National Park Service regulates it.
+    </dd>
     <br>
     <dt>How do I make reservations for camping/lodging in national parks?</dt>
-    <dd class="invisible">For campground reservations, visit Recreation.gov. Not all parks participate in this service; many campgrounds are first come, first served. For more information on specific camping and lodging services offered at the park(s) of your interest, please check specific park websites. You can also learn more about camping in national parks and find a map of parks with camping opportunities.</dd>
+    <dd class="invisible">For campground reservations, visit Recreation.gov. Not all parks participate in this service;
+        many campgrounds are first come, first served. For more information on specific camping and lodging services
+        offered at the park(s) of your interest, please check specific park websites. You can also learn more about
+        camping in national parks and find a map of parks with camping opportunities.
+    </dd>
     <br>
     <dt>Where can I find a park map?</dt>
-    <dd class="invisible">You can view maps on specific park websites or find national park, National Park System, National Trails System, and other maps.</dd>
+    <dd class="invisible">You can view maps on specific park websites or find national park, National Park System,
+        National Trails System, and other maps.
+    </dd>
 </dl>
 <br>
 <a href="#" id="togglerForFAQ">Toggle FAQ Answers Here</a>
+
+<h3>Yellowstone National Park</h3>
+<ul>
+    <li>Yellowstone National Park is named after the Yellowstone River, the major river running through the park.</li>
+    <li>Yellowstone is in the top five national parks for number of recreational visitors.</li>
+    <li>Approximately 738 people work for the National Park Service during the peak summer season.</li>
+    <li>Eagle Peak in the southeastern part of Yellowstone is the highest at 11,358 feet.</li>
+</ul>
+<h3>Zion National Park</h3>
+<ul>
+    <li>Zion National Park is located in the Southwestern corner of Utah, and northwest of the city of Saint George in
+        Washington, Kane and Iron counties.
+    </li>
+    <li>Zion National park was established in 1909 as Mukuntuweap National Monument. It became Zion National Park in
+        1919.
+    </li>
+    <li>The name "Zion" meaning "place of refuge," was given to the canyon by Mormon pioneers.</li>
+    <li>The average temperature at Zion National Park is 75 degrees Fahrenheit, ranging from 52 degrees in January to a
+        high of 100 degrees in July.
+    </li>
+</ul>
+<h3>Rocky Mountain National Park</h3>
+<ul>
+    <li>Rocky Mountain is one of the nation’s highest national parks. With elevations from 7,860 feet to 14,259 feet,
+        Rocky Mountain makes you feel like you are on top of the world.
+    </li>
+    <li>Nearly 250,000 acres of Rocky Mountain was designated as wilderness by Congress in 2009, protecting the wild
+        beauty of the park’s meadows, forests, alpine peaks and tundra.
+    </li>
+    <li>The park features the country’s highest continuous paved road, Trail Ridge Road. Reaching its highest point at
+        12,183 ft., Trail Ridge Road is 48 miles of pristine mountain views.
+    </li>
+    <li>There are over 280 different bird species known to habitat in the park.</li>
+</ul>
+
+<button type="button">Highlight</button>
 
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"
         integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
@@ -64,16 +112,27 @@
         $().ready(function () {
 
 
-                $('#togglerForFAQ').click(function(event) {
-                    event.preventDefault();
-                    $('dd').toggleClass('invisible');
-                    console.log("invisible")
-                });
+            $('#togglerForFAQ').click(function (event) {
+                event.preventDefault();
+                $('dd').toggleClass('invisible');
+                console.log("invisible")
+            });
 
-                $("dt").click(function() {
-                    $(this).css("background-color", "#ece667");
-                });
+            $("dt").click(function () {
+                $(this).css("background-color", "#ece667");
+            });
 
+            $("button").click(function () {
+                $("ul li:last-child").css("background-color", "#ece667")
+            })
+
+            $("h3").click(function () {
+                $(this).next('ul').css("font-weight", "bold")
+            })
+
+            $("ul").click(function () {
+                $(this).children().first().css("background-color", "#67aeec")
+            })
 
 
         });
