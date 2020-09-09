@@ -68,16 +68,17 @@
         integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
 <script>
-    (function () {
+    // (function () {
         "use strict";
+
 
         var infoLoad = function () {
             $.ajax("data/blog.json").done(function (data, status, jqXhr) {
-                console.log(data);
+
                 var innerHTML = "";
                 data.forEach(function (item) {
                     innerHTML += "<div class=\"card\" style=\"width: 45rem;\">\n" +
-                        "<img id=\"blogImages\" src=\"Img/greekBlogPic.jpg\" class=\"card-img-top\" alt=\"Greek Temple\">\n" +
+                        "<img src=\"Img/greekBlogPic.jpg\" class=\"card-img-top\" alt=\"Greek Temple\">\n" +
                         "<div class=\"card-body\">\n" +
                         "<h5 class=\"card-title\">Blog Post: " + item["date"] + "</h5>\n" +
                         "<div class=\"card-text\"><div class='card-text'> " + item["title"] + "<br><br> " + item["content"] + "<br><br> Categories: " + item["categories"] + " </div>\n" +
@@ -88,25 +89,29 @@
 
 
                     $("#blogBody").html(innerHTML);
+                    displayPics();
                 })
             });
         }
-        infoLoad();
-
-        // function displayPics() {
-        //
-        //     var imagesArray = ["Img/bikeRideBlog.jpg", "Img/foodBlogPost.jpg", "Img/greekBlogPic.jpg", "Img/shotsBlogPost.jpg"]
-        //
-        //     var num = Math.floor(Math.random() * imagesArray.length);
-        //     var img = imagesArray[num];
-        //
-        //     var innerHTML = $("#blogImages").attr("src", img);
-        // }
-        //
-        // displayPics();
 
 
-    })();
+        function displayPics() {
+
+            var imagesArray = ["Img/bikeRideBlog.jpg", "Img/foodBlogPost.jpg", "Img/greekBlogPic.jpg", "Img/shotsBlogPost.jpg"]
+
+            var num = Math.floor(Math.random() * imagesArray.length);
+            var img = imagesArray[num];
+
+            $(".card-img-top").attr("src", img);
+        }
+
+        $().ready(function () {
+            infoLoad();
+        })
+
+
+
+    // })();
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
