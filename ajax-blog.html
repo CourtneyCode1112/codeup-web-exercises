@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <!--  My CSS   ---->
+    <link rel="stylesheet" href="CSS/blogStyling.css">
+    <title>Online Blog</title>
+</head>
+<body>
+<div class="container">
+
+    <div class="card" style="width: 45rem;">
+        <img src="Img/greekBlogPic.jpg" class="card-img-top" alt="Greek Temple">
+        <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <div class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                content.
+            </div>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+    </div>
+
+    <div class="card" style="width: 45rem;">
+        <img src="Img/greekBlogPic.jpg" class="card-img-top" alt="Greek Temple">
+        <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <div class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                content.
+            </div>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+    </div>
+
+    <div class="card" style="width: 45rem;">
+        <img src="Img/greekBlogPic.jpg" class="card-img-top" alt="Greek Temple">
+        <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <div class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                content.
+            </div>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+    </div>
+
+</div>
+
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+<script>
+    (function () {
+        "use strict";
+
+        var infoLoad = function () {
+            $.ajax("data/blog.json").done(function (data, status, jqXhr) {
+                console.log(data);
+                var innerHTML = "";
+                data.forEach(function (item) {
+                    innerHTML += "<div class='card-text'> " + item["title"] + "<br> " + item["content"] + "<br> Categories: " + item["categories"] + " <br> " + item["date"] + " </div>";
+                })
+            });
+        }
+        infoLoad();
+
+        var posts = $(".card-text").html()
+        posts.forEach(function () {
+            $(this).html("innerHTML");
+        });
+
+    })();
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+</body>
+</html>
