@@ -47,7 +47,10 @@
 <div class="container-flex">
     <section class="row">
         <div class="col p-0 m-0">
-            <div id="pill1" class="badge badge-pill badge-primary"></div>
+            <div id="pill1" class="badge badge-pill badge-primary" data-toggle="popover" title="SAW" data-content="A saw is a tool consisting of a tough blade, wire, or chain with a hard toothed edge. It is used to cut through material, very often wood though sometimes metal or stone.">+</div>
+            <div id="pill2" class="badge badge-pill badge-primary" data-toggle="popover" title="TROWEL" data-content="A trowel is a small hand tool used for digging, applying, smoothing, or moving small amounts of viscous or particulate material. Common varieties include the masonry trowel, garden trowel, and float trowel.">+</div>
+            <div id="pill3" class="badge badge-pill badge-primary" data-toggle="popover" title="HAMMER" data-content="A hammer is a tool consisting of a weighted 'head' fixed to a long handle that is swung to deliver an impact to a small area of an object. This can be, for example, to drive nails into wood, to shape metal (as with a forge), or to crush rock. Hammers are used for a wide range of driving, shaping, and breaking applications.">+</div>
+            <div id="pill4" class="badge badge-pill badge-primary" data-toggle="popover" title="WELDING HELMET" data-content="A welding helmet is a type of headgear used when performing certain types of welding to protect the eyes, face and neck from flash burn, ultraviolet light, sparks, infrared light, and heat.">+</div>
 
             <div id="storeHeader" class="d-flex justify-content-center">
                 <h1 class="">TOOL TIME</h1>
@@ -93,7 +96,6 @@
         }
         infoLoad();
 
-
         $("button").click(function () {
             infoLoad();
         })
@@ -102,8 +104,15 @@
         //       HINT: Your data should come back as a JSON object; use console.log() to inspect
         //             its contents and fields
         //       HINT: You will want to target #insertProducts for your new HTML elements
+
+        $(function () {
+            $('[data-toggle="popover"]').popover()
+        })
+
+
     })();
 </script>
+
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
         crossorigin="anonymous"></script>

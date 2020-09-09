@@ -1,13 +1,13 @@
 body {
     position: relative;
-    background-image: url("Img/toolsBackground.jpg");
+    background-image: url("../Img/toolsBackground.jpg");
     background-size: cover;
     background-repeat: no-repeat;
 }
 
 @font-face {
     font-family: toolFont;
-    src: url(fonts/SansPlateCaps.ttf);
+    src: url("../fonts/SansPlateCaps.ttf");
 }
 
 h1 {
@@ -26,4 +26,29 @@ table {
 
 #pill1 {
     position: absolute;
+    top: 180px;
+    left: 80px;
+}
+
+#pill1 {
+    position: absolute;
+    top: 35%;
+}
+
+#pill2 {
+    position: absolute;
+    top: 40%;
+    left: 28%;
+}
+
+#pill3 {
+    position: absolute;
+    top: 35%;
+    left: 48%;
+}
+
+#pill4 {
+    position: absolute;
+    top: 37%;
+    left: 90%;
 }
