@@ -60,9 +60,14 @@
             </div>
             <div class="panel-body"> Content
             </div>
-
         </article>
     </section>
+    <label for="textInput">What is your favorite animal between a chicken or cow?</label>
+    <input type="text" id="textInput">
+    <button type="button" id="animalSub">Submit</button>
+
+    <div id="animalImage"><img id="userImg" src="Img/cowImg.jpg" alt="cow"><img id="userImg2" src="Img/chickenImg.jpg" alt="cow"></div>
+
 </main>
 <!-- jQuery and bootstrap -->
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
@@ -81,6 +86,21 @@
         });
 
     });
+
+    $("img").hide()
+    var input = $("#textInput").val()
+
+
+    $("#animalSub").click(function () {
+        var newPic1 = $("#userImg").html()
+        var newPic2 = $("#userImg2").html()
+        console.log(input)
+        if (input == "cow") {
+            $("#userImg").html(newPic1).show()
+        } else if (input == "chicken") {
+            $("#userImg2").html(newPic2).show()
+        }
+    })
 
 </script>
 </body>

@@ -1,0 +1,21 @@
+body {
+    background-image: url("../Img/blogBackground.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@font-face {
+    font-family: blogFont;
+    src: url("../fonts/ThunderDemo.ttf");
+}
+
+h1 {
+    font-family: blogFont;
+    font-size: 85px;
+    text-shadow: 2px 2px 30px #96aad7;
+}
+
+#rightSection {
+    margin-top: 110px;
+
+}
