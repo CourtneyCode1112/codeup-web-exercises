@@ -4,6 +4,12 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Mapbox CSS -->
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet'/>
+    <!-- Mapbox JS -->
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+    <!-- Mapbox Geocoder Util Methods -->
+    <script src="js/mapbox-geocoder-utils.js"></script>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
           integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
@@ -15,14 +21,80 @@
 </head>
 <body>
 
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <div class="weather-card one">
+                <div class="top">
+                    <div class="wrapper">
+                        <div class="mynav">
+                            <a href="javascript:;"><span class="lnr lnr-chevron-left"></span></a>
+                            <a href="javascript:;"><span class="lnr lnr-cog"></span></a>
+                        </div>
+                        <h1 class="heading"></h1>
+                        <h3 class="location"></h3>
+                        <p class="temp">
+                            <span class="temp-value"></span>
+                            <span class="deg">0</span>
+                            <a href="javascript:;"><span class="temp-type">F</span></a>
+                        </p>
+                    </div>
+                </div>
+                <div class="bottom pt-3">
+                    <div class="wrapper">
+                        <ul class="forecast p-0">
+                            <a href="#nextWeather"><span id="toggleUp" class="lnr lnr-chevron-up go-up "></span></a>
+                            <li class="active">
+                                <span class="date">Tomorrow</span>
+                                <span class="lnr lnr-sun condition">
+									<span class="temp">23<span class="deg">0</span><span
+                                            class="temp-type">C</span></span>
+								</span>
+                            </li>
+                            <li>
+                                <span class="date">Next Day</span>
+                                <span class="lnr lnr-cloud condition">
+									<span class="temp">21<span class="deg">0</span><span
+                                            class="temp-type">C</span></span>
+								</span>
+                            </li>
+                            <!--test--->
+                            <section id="nextWeather">
+                                <li>
+                                    <span class="date">Next Day</span>
+                                    <span class="lnr lnr-sun condition">
+									<span class="temp">24<span class="deg">0</span><span
+                                            class="temp-type">C</span></span>
+								</span>
+                                </li>
+                                <li>
+                                    <span class="date">Next Day</span>
+                                    <span class="lnr lnr-cloud condition">
+									<span class="temp">28<span class="deg">0</span><span
+                                            class="temp-type">C</span></span>
+								</span>
+                                </li>
+                                <li>
+                                    <span class="date">Next Day</span>
+                                    <span class="lnr lnr-cloud condition">
+									<span class="temp">50<span class="deg">0</span><span
+                                            class="temp-type">C</span></span>
+								</span>
+                                </li>
+                            </section>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
 
+        <!-- MAP -->
+        <div id='map' class="col-6 p-0">
 
+        </div>
 
-
-
-
-
-
+    </div>
+</div>
 
 
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"
@@ -36,21 +108,36 @@
 
 <script>
 
-    $(document).ready(function(){
+    $(document).ready(function () {
 
-        const api_endpoint = "http://api.openweathermap.org/data/2.5/forecast";
+        const api_endpoint = "http://api.openweathermap.org/data/2.5/weather";
         var q = "San Antonio"
         $.get(api_endpoint, {
             APPID: OPENWEATHERMAP_API_KEY,
             q: q,
             units: "imperial"
-        }).done(function(data){
-            console.log("5 day forecast", data);
+        }).done(function (data) {
+            console.log(data);
+            $(".temp-value").html(data.main.temp)
+            $(".location").html(data.name)
+            $(".heading").html(data.weather[0].description)
         })
 
+        mapboxgl.accessToken = MAPBOX_TOKEN;
+        var start = [-98.486990, 29.411230];
+        var end = [-98.486990, 29.411230];
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/streets-v11',
+            center: start,
+            zoom: 12.5
+        });
+
+        $("#toggleUp").click(function () {
+            $(".bottom").scrollTop()
+        })
 
     });
-
 
 
 </script>
