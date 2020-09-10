@@ -25,8 +25,8 @@
     <div class="row">
         <div class="col-6">
             <div class="weather-card one">
-                <div class="top">
-                    <div class="wrapper">
+                <div class="top d-flex">
+                    <div class="col wrapper justify-content-center">
                         <h1 class="heading"></h1>
                         <h3 class="location"></h3>
                         <p class="temp">
@@ -43,14 +43,14 @@
                             <a href="#nextWeather"><span id="toggleUp" class="lnr lnr-chevron-up go-up "></span></a>
                             <li class="active">
                                 <span class="date">Tomorrow</span>
-                                <span class="lnr lnr-sun condition">
+                                <span class="lnr condition">
 									<span class="temp">23<span class="deg">0</span><span
                                             class="temp-type">C</span></span>
 								</span>
                             </li>
                             <li>
                                 <span id="date2" class="date">Wednesday</span>
-                                <span class="lnr lnr-cloud condition">
+                                <span class="lnr condition">
 									<span class="temp">21<span class="deg">0</span><span
                                             class="temp-type">C</span></span>
 								</span>
@@ -59,21 +59,21 @@
                             <section id="nextWeather">
                                 <li>
                                     <span id="date3" class="date">Thursday</span>
-                                    <span class="lnr lnr-sun condition">
+                                    <span class="lnr condition">
 									<span class="temp">24<span class="deg">0</span><span
                                             class="temp-type">C</span></span>
 								</span>
                                 </li>
                                 <li>
                                     <span id="date4" class="date">Friday</span>
-                                    <span class="lnr lnr-cloud condition">
+                                    <span class="lnr condition">
 									<span class="temp">28<span class="deg">0</span><span
                                             class="temp-type">C</span></span>
 								</span>
                                 </li>
                                 <li>
                                     <span id="date5" class="date">Saturday</span>
-                                    <span class="lnr lnr-cloud condition">
+                                    <span class="lnr condition">
 									<span class="temp">50<span class="deg">0</span><span
                                             class="temp-type">C</span></span>
 								</span>
@@ -118,17 +118,14 @@
             $(".temp-value").html(data.main.temp)
             $(".location").html(data.name)
             $(".heading").html(data.weather[0].description)
-            $("#weatherIcon").html
+            $("#weatherIcon").html(data.weather[0].icon)
         })
 
-        const api_endpoint2 = "https://api.openweathermap.org/data/2.5/forecast";
-        var q = "San Antonio"
-        $.get(api_endpoint2, {
-            APPID: OPENWEATHERMAP_API_KEY,
-            q: q,
-            units: "imperial"
-        }).done(function (data) {
+        // const api_endpoint2 = "https://api.openweathermap.org/data/2.5/forecast";
+        // var q = "San Antonio"
+        $.get("https://api.openweathermap.org/data/2.5/onecall?lat=29.411230&lon=-98.486990&exclude=hourly,minutely&appid=" +OPENWEATHERMAP_API_KEY + "&units=imperial").done(function (data) {
             console.log(data);
+
         })
 
         mapboxgl.accessToken = MAPBOX_TOKEN;

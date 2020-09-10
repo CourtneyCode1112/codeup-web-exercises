@@ -28,21 +28,6 @@ body {
     position: relative;
     z-index: 1;
 }
-.weather-card .top .wrapper .mynav {
-    height: 20px;
-}
-.weather-card .top .wrapper .mynav .lnr {
-    color: #fff;
-    font-size: 20px;
-}
-.weather-card .top .wrapper .mynav .lnr-chevron-left {
-    display: inline-block;
-    float: left;
-}
-.weather-card .top .wrapper .mynav .lnr-cog {
-    display: inline-block;
-    float: right;
-}
 .weather-card .top .wrapper .heading {
     margin-top: 20px;
     font-size: 35px;
@@ -149,11 +134,7 @@ body {
 .weather-card .bottom .wrapper .forecast li.active {
     color: rgba(0, 0, 0, 0.8);
 }
-.weather-card.rain .top {
-    background: url("../Img/toolsBackground.jpg") no-repeat;
-    background-size: cover;
-    background-position: center center;
-}
+
 
 /*MAP CSS*/
 
@@ -162,42 +143,4 @@ body {
     height: 730px;
     width: 450px;
     box-shadow: 0 1px 38px rgba(0, 0, 0, 0.15), 0 5px 12px rgba(0, 0, 0, 0.25);
-}
-
-.menu-ui {
-    background:#fff;
-    position:absolute;
-    top:10px;right:10px;
-    z-index:1;
-    border-radius:3px;
-    width:120px;
-    border:1px solid rgba(0,0,0,0.4);
-}
-.menu-ui a {
-    font-size:13px;
-    color:#404040;
-    display:block;
-    margin:0;padding:0;
-    padding:10px;
-    text-decoration:none;
-    border-bottom:1px solid rgba(0,0,0,0.25);
-    text-align:center;
-}
-.menu-ui a:first-child {
-    border-radius:3px 3px 0 0;
-}
-.menu-ui a:last-child {
-    border:none;
-    border-radius:0 0 3px 3px;
-}
-.menu-ui a:hover {
-    background:#f8f8f8;
-    color:#404040;
-}
-.menu-ui a.active {
-    background:#3887BE;
-    color:#FFF;
-}
-.menu-ui a.active:hover {
-    background:#3074a4;
 }
