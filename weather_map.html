@@ -27,16 +27,13 @@
             <div class="weather-card one">
                 <div class="top">
                     <div class="wrapper">
-                        <div class="mynav">
-                            <a href="javascript:;"><span class="lnr lnr-chevron-left"></span></a>
-                            <a href="javascript:;"><span class="lnr lnr-cog"></span></a>
-                        </div>
                         <h1 class="heading"></h1>
                         <h3 class="location"></h3>
                         <p class="temp">
                             <span class="temp-value"></span>
                             <span class="deg">0</span>
-                            <a href="javascript:;"><span class="temp-type">F</span></a>
+                            <a><span class="temp-type">F</span></a>
+                            <span id="weatherIcon"></span>
                         </p>
                     </div>
                 </div>
@@ -52,7 +49,7 @@
 								</span>
                             </li>
                             <li>
-                                <span class="date">Next Day</span>
+                                <span id="date2" class="date">Wednesday</span>
                                 <span class="lnr lnr-cloud condition">
 									<span class="temp">21<span class="deg">0</span><span
                                             class="temp-type">C</span></span>
@@ -61,21 +58,21 @@
                             <!--test--->
                             <section id="nextWeather">
                                 <li>
-                                    <span class="date">Next Day</span>
+                                    <span id="date3" class="date">Thursday</span>
                                     <span class="lnr lnr-sun condition">
 									<span class="temp">24<span class="deg">0</span><span
                                             class="temp-type">C</span></span>
 								</span>
                                 </li>
                                 <li>
-                                    <span class="date">Next Day</span>
+                                    <span id="date4" class="date">Friday</span>
                                     <span class="lnr lnr-cloud condition">
 									<span class="temp">28<span class="deg">0</span><span
                                             class="temp-type">C</span></span>
 								</span>
                                 </li>
                                 <li>
-                                    <span class="date">Next Day</span>
+                                    <span id="date5" class="date">Saturday</span>
                                     <span class="lnr lnr-cloud condition">
 									<span class="temp">50<span class="deg">0</span><span
                                             class="temp-type">C</span></span>
@@ -121,6 +118,17 @@
             $(".temp-value").html(data.main.temp)
             $(".location").html(data.name)
             $(".heading").html(data.weather[0].description)
+            $("#weatherIcon").html
+        })
+
+        const api_endpoint2 = "https://api.openweathermap.org/data/2.5/forecast";
+        var q = "San Antonio"
+        $.get(api_endpoint2, {
+            APPID: OPENWEATHERMAP_API_KEY,
+            q: q,
+            units: "imperial"
+        }).done(function (data) {
+            console.log(data);
         })
 
         mapboxgl.accessToken = MAPBOX_TOKEN;
@@ -133,9 +141,43 @@
             zoom: 12.5
         });
 
-        $("#toggleUp").click(function () {
-            $(".bottom").scrollTop()
-        })
+
+        function dayInput(input) {
+            switch (input) {
+                case 0:
+                    return "Sunday"
+                    break;
+                case 1:
+                    return "Monday"
+                    break;
+                case 2:
+                    return "Tuesday"
+                    break;
+                case 3:
+                    return "Wednesday"
+                    break;
+                case 4:
+                    return "Thursday"
+                    break;
+                case 5:
+                    return "Friday"
+                    break;
+                case 6:
+                    return "Saturday"
+                    break;
+            }
+        }
+
+        //0 is Sunday
+        var currentDay = new Date().getDay();
+        var createDay1 = currentDay + 2;
+        var createDay2 = currentDay - 4;
+        var createDay3 = currentDay - 3;
+        var createDay4 = currentDay - 2;
+        $("#date2").html(dayInput(createDay1))
+        $("#date3").html(dayInput(createDay2))
+        $("#date4").html(dayInput(createDay3))
+        $("#date5").html(dayInput(createDay4))
 
     });
 
