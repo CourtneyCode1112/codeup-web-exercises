@@ -22,6 +22,7 @@ body {
     background-size: cover;
     background-position: center center;
     text-align: center;
+    filter: brightness(130%);
 }
 .weather-card .top .wrapper {
     padding: 30px;
