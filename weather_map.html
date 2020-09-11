@@ -131,12 +131,22 @@
             $("#humidity").html(data.main.humidity)
             $("#wind").html(data.wind.speed)
 
-            // var weatherDayPic = function() {
-            //     var weatherMain = $(data.weather[0].main)
-            //     console.log(weatherMain)
-            //     if {}
-            // }
-            // weatherDayPic()
+            //WEATHER PIC UPDATE FUNCTION
+
+            function updateWeatherPic() {
+                if ((data.weather[0].main) === "Rain") {
+                    $(".weather-card .top").css("background-image", "url(Img/rainyWeather.jpg");
+                    // console.log($(".weather-card .top").css("background-image"));
+                } else if ((data.weather[0].main) === "Clear") {
+                    $(".weather-card .top").css("background-image", "url(Img/sunnyWeather.jpg");
+                } else if ((data.weather[0].main) === "Clouds") {
+                    $(".weather-card .top").css("background-image", "url(Img/overcastWeather.jpg");
+                    console.log("Yes")
+                } else if ((data.weather[0].main) === "Snow") {
+                    $(".weather-card .top").css("background-image", "url(Img/snowingWeather.jpg");
+                }
+            }
+            updateWeatherPic()
 
 
         })
@@ -202,6 +212,9 @@
         // TO SEARCH AND ADD MARKER
         document.getElementById('search').addEventListener('click', findForUser)
 
+
+        var currentMain = ""
+
         function findForUser() {
             var userInput = document.getElementById('userSearch')
             geocode(userInput.value, MAPBOX_TOKEN)
@@ -213,31 +226,54 @@
                     map.setCenter(result);
                     map.setZoom(17);
 
-
-
-                    var lat = result[0]
-                    var lon = result[1]
-                    $.get("https://api.openweathermap.org/data/2.5/weather?lat=" +lat+ "&lon=" +lon+ "&appid=" +OPENWEATHERMAP_API_KEY+ "&units=imperial").done(function (data) {
+                    //UPDATE FOR NEW ADDRESS
+                    var lon = result[0]
+                    var lat = result[1]
+                    console.log(lon)
+                    console.log(lat)
+                    $.get("https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&appid=" + OPENWEATHERMAP_API_KEY + "&units=imperial").done(function (data) {
                         console.log(data);
                         $(".temp-value").html(data.main.temp)
                         $(".location").html(data.name)
                         $(".heading").html(data.weather[0].description)
                         $("#humidity").html(data.main.humidity)
                         $("#wind").html(data.wind.speed)
+                        currentMain = (data.weather[0].main)
+                        console.log(currentMain)
+
+                        //WEATHER PIC UPDATE FUNCTION
+
+                        function updateWeatherPicforSearch() {
+                            if ((data.weather[0].main) === "Rain") {
+                                $(".weather-card .top").css("background-image", "url(Img/rainyWeather.jpg");
+                                // console.log($(".weather-card .top").css("background-image"));
+                                console.log("Yes")
+                            } else if ((data.weather[0].main) === "Clear") {
+                                $(".weather-card .top").css("background-image", "url(Img/sunnyWeather.jpg");
+                            } else if ((data.weather[0].main) === "Clouds") {
+                                $(".weather-card .top").css("background-image", "url(Img/overcastWeather.jpg");
+                            } else if ((data.weather[0].main) === "Snow") {
+                                $(".weather-card .top").css("background-image", "url(Img/snowingWeather.jpg");
+                            }
+                        }
+                        updateWeatherPicforSearch()
+
+
+                    })
+
+
+                    $.get("https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&exclude=hourly,minutely&appid=" + OPENWEATHERMAP_API_KEY + "&units=imperial").done(function (data) {
+                        // console.log(data);
+                        $("#day2Temp").html(data.daily[1].temp.day)
+                        $("#day3Temp").html(data.daily[2].temp.day)
+                        $("#day4Temp").html(data.daily[3].temp.day)
+                        $("#day5Temp").html(data.daily[4].temp.day)
+                        $("#day6Temp").html(data.daily[5].temp.day)
                     })
 
                 })
+
         }
-
-
-        // function newWeatherLocation() {
-        //     var userInput = document.getElementById('userSearch')
-        //     console.log(userInput)
-        //     console.log(geocode(userInput.value, MAPBOX_TOKEN));
-        // }
-        //
-        // newWeatherLocation()
-
 
     });
 
