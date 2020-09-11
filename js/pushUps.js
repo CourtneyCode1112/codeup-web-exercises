@@ -148,9 +148,9 @@ var tools = [
     }
 ]
 // console.log(tools[0].price)
-var findHighest = function (tools) {
+var findHighestPrice = function (tools) {
     var highest = 0
-    for (var i = 0; i < tools.length; i++) {
+    for (var i = 0; i <= tools.length -1; i++) {
         if (tools[i].price > highest) {
             highest = tools[i].price
         }
@@ -158,11 +158,23 @@ var findHighest = function (tools) {
     return highest
 }
 
-findHighest(tools)
+findHighestPrice(tools)
 
-var findLowest = function (tools) {
-    var lowest = 200
-    for (var i = 0; i < tools.length; i++) {
+var findHighest = function (tools) {
+    var highest = {price:0}
+    for (var i = 0; i <= tools.length -1; i++) {
+        if (tools[i].price > highest.price) {
+            highest = tools[i]
+        }
+    }
+    return highest
+}
+
+console.log(findHighest(tools));
+
+var findLowestPrice = function (tools) {
+    var lowest = Infinity
+    for (var i = 0; i <= tools.length -1; i++) {
         if (tools[i].price < lowest) {
             lowest = tools[i].price
         }
@@ -170,4 +182,24 @@ var findLowest = function (tools) {
     return lowest
 }
 
+console.log(findLowestPrice(tools));
+
+var findLowest = function (tools) {
+    var lowest = {price:Infinity}
+    for (var i = 0; i <= tools.length -1; i++) {
+        if (tools[i].price < lowest.price) {
+            lowest = tools[i]
+        }
+    }
+    return lowest
+}
+
 console.log(findLowest(tools));
+
+var findGreatestAndLeast = function () {
+    return [findHighest(tools), findLowest(tools)]
+}
+
+console.log(findGreatestAndLeast());
+
+
