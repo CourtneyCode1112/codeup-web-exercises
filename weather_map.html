@@ -33,63 +33,73 @@
                             <span class="temp-value"></span>
                             <span class="deg">0</span>
                             <a><span class="temp-type">F</span></a>
-                            <span id="weatherIcon"></span>
                         </p>
+                        <div class="humidity">Humidity : <span id="humidity"></span></div>
+                        <div class="wind">Wind Speed : <span id="wind"></span></div>
                     </div>
                 </div>
                 <div class="bottom pt-3">
                     <div class="wrapper">
                         <ul class="forecast p-0">
-                            <a href="#nextWeather"><span id="toggleUp" class="lnr lnr-chevron-up go-up "></span></a>
+                            <a href="#nextWeather"><span id="toggleUp" class="lnr lnr-chevron-up go-up"></span></a>
                             <li class="active">
                                 <span class="date">Tomorrow</span>
                                 <span class="lnr condition">
-									<span class="temp">23<span class="deg">0</span><span
-                                            class="temp-type">C</span></span>
+									<span class="temp"><span id="day2Temp"></span><span class="deg">0</span><span
+                                            class="temp-type">F</span></span>
 								</span>
                             </li>
                             <li>
                                 <span id="date2" class="date">Wednesday</span>
                                 <span class="lnr condition">
-									<span class="temp">21<span class="deg">0</span><span
-                                            class="temp-type">C</span></span>
+									<span class="temp"><span id="day3Temp"></span><span class="deg">0</span><span
+                                            class="temp-type">F</span></span>
+								</span>
+                            </li>
+                            <li>
+                                <span id="date3" class="date">Thursday</span>
+                                <span class="lnr condition">
+									<span class="temp"><span id="day4Temp"></span><span class="deg">0</span><span
+                                            class="temp-type">F</span></span>
 								</span>
                             </li>
                             <!--test--->
-                            <section id="nextWeather">
-                                <li>
-                                    <span id="date3" class="date">Thursday</span>
-                                    <span class="lnr condition">
-									<span class="temp">24<span class="deg">0</span><span
-                                            class="temp-type">C</span></span>
+                            <a href="#toggleUp" id="nextWeather"><span class="hide lnr lnr-chevron-up go-up"></span></a>
+                            <li>
+                                <span id="date4" class="date">Friday</span>
+                                <span class="lnr condition">
+									<span class="temp"><span id="day5Temp"></span><span class="deg">0</span><span
+                                            class="temp-type">F</span></span>
 								</span>
-                                </li>
-                                <li>
-                                    <span id="date4" class="date">Friday</span>
-                                    <span class="lnr condition">
-									<span class="temp">28<span class="deg">0</span><span
-                                            class="temp-type">C</span></span>
+                            </li>
+                            <li>
+                                <span id="date5" class="date">Saturday</span>
+                                <span class="lnr condition">
+									<span class="temp"><span id="day6Temp"></span><span class="deg">0</span><span
+                                            class="temp-type">F</span></span>
 								</span>
-                                </li>
-                                <li>
-                                    <span id="date5" class="date">Saturday</span>
-                                    <span class="lnr condition">
-									<span class="temp">50<span class="deg">0</span><span
-                                            class="temp-type">C</span></span>
-								</span>
-                                </li>
-                            </section>
+                            </li>
+                            </a>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- MAP -->
-        <div id='map' class="col-6 p-0">
+        <div class="col-6 p-0">
+            <section id="searchBar" class="mt-3">
+                <div>
+                    <label class="text-light h5" for="userSearch">Search Address:</label>
+                    <input type="text" name="address" id="userSearch" placeholder="Enter Address">
+                    <button type="button" id="search">Search</button>
+                </div>
+            </section>
 
+            <!-- MAP -->
+            <div id='map'>
+
+            </div>
         </div>
-
     </div>
 </div>
 
@@ -118,14 +128,27 @@
             $(".temp-value").html(data.main.temp)
             $(".location").html(data.name)
             $(".heading").html(data.weather[0].description)
-            $("#weatherIcon").html(data.weather[0].icon)
+            $("#humidity").html(data.main.humidity)
+            $("#wind").html(data.wind.speed)
+
+            // var weatherDayPic = function() {
+            //     var weatherMain = $(data.weather[0].main)
+            //     console.log(weatherMain)
+            //     if {}
+            // }
+            // weatherDayPic()
+
+
         })
 
-        // const api_endpoint2 = "https://api.openweathermap.org/data/2.5/forecast";
-        // var q = "San Antonio"
-        $.get("https://api.openweathermap.org/data/2.5/onecall?lat=29.411230&lon=-98.486990&exclude=hourly,minutely&appid=" +OPENWEATHERMAP_API_KEY + "&units=imperial").done(function (data) {
-            console.log(data);
 
+        $.get("https://api.openweathermap.org/data/2.5/onecall?lat=29.411230&lon=-98.486990&exclude=hourly,minutely&appid=" + OPENWEATHERMAP_API_KEY + "&units=imperial").done(function (data) {
+            console.log(data);
+            $("#day2Temp").html(data.daily[1].temp.day)
+            $("#day3Temp").html(data.daily[2].temp.day)
+            $("#day4Temp").html(data.daily[3].temp.day)
+            $("#day5Temp").html(data.daily[4].temp.day)
+            $("#day6Temp").html(data.daily[5].temp.day)
         })
 
         mapboxgl.accessToken = MAPBOX_TOKEN;
@@ -138,7 +161,7 @@
             zoom: 12.5
         });
 
-
+//CHANGING DATES IN WEATHER WIDGET
         function dayInput(input) {
             switch (input) {
                 case 0:
@@ -175,6 +198,46 @@
         $("#date3").html(dayInput(createDay2))
         $("#date4").html(dayInput(createDay3))
         $("#date5").html(dayInput(createDay4))
+
+        // TO SEARCH AND ADD MARKER
+        document.getElementById('search').addEventListener('click', findForUser)
+
+        function findForUser() {
+            var userInput = document.getElementById('userSearch')
+            geocode(userInput.value, MAPBOX_TOKEN)
+                .then(function (result) {
+                    console.log(result);
+                    var userMarker = new mapboxgl.Marker()
+                        .setLngLat(result)
+                        .addTo(map)
+                    map.setCenter(result);
+                    map.setZoom(17);
+
+
+
+                    var lat = result[0]
+                    var lon = result[1]
+                    $.get("https://api.openweathermap.org/data/2.5/weather?lat=" +lat+ "&lon=" +lon+ "&appid=" +OPENWEATHERMAP_API_KEY+ "&units=imperial").done(function (data) {
+                        console.log(data);
+                        $(".temp-value").html(data.main.temp)
+                        $(".location").html(data.name)
+                        $(".heading").html(data.weather[0].description)
+                        $("#humidity").html(data.main.humidity)
+                        $("#wind").html(data.wind.speed)
+                    })
+
+                })
+        }
+
+
+        // function newWeatherLocation() {
+        //     var userInput = document.getElementById('userSearch')
+        //     console.log(userInput)
+        //     console.log(geocode(userInput.value, MAPBOX_TOKEN));
+        // }
+        //
+        // newWeatherLocation()
+
 
     });
 
