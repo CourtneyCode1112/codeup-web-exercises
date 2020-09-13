@@ -21,9 +21,9 @@
 </head>
 <body>
 
-<div class="container">
+<div class="container mx-auto">
     <div class="row">
-        <div class="col-6">
+        <div class="col-md-6 col-sm-12">
             <div class="weather-card one">
                 <div class="top d-flex">
                     <div class="col wrapper justify-content-center">
@@ -50,7 +50,7 @@
 								</span>
                                 <p class="h6" id="moreInfo1">
                                     <span class="mr-3 h6" id="moreInfo1Content"></span>Humidity : <span class="h6"
-                                         id="moreInfo1Content1"></span>
+                                                                                                        id="moreInfo1Content1"></span>
                                 </p>
                             </li>
                             <li>
@@ -61,7 +61,7 @@
 								</span>
                                 <p id="moreInfo2" class="h6">
                                     <span class="mr-3 h6" id="moreInfo2Content"></span>Humidity : <span class="h6"
-                                         id="moreInfo2Content2"></span>
+                                                                                                        id="moreInfo2Content2"></span>
                                 </p>
                             </li>
                             <li>
@@ -72,10 +72,10 @@
 								</span>
                                 <p id="moreInfo3" class="h6">
                                     <span class="mr-3 h6" id="moreInfo3Content"></span>Humidity : <span class="h6"
-                                         id="moreInfo3Content3"></span>
+                                                                                                        id="moreInfo3Content3"></span>
                                 </p>
                             </li>
-               <!-------Toggle up-------->
+                            <!-------Toggle up-------->
                             <a href="#toggleUp" id="nextWeather"><span class="lnr lnr-chevron-up go-up"></span></a>
                             <li>
                                 <span id="date4" class="date">Friday</span>
@@ -85,10 +85,10 @@
 								</span>
                                 <p id="moreInfo4" class="h6">
                                     <span class="mr-3 h6" id="moreInfo4Content"></span>Humidity : <span class="h6"
-                                        id="moreInfo4Content4"></span>
+                                                                                                        id="moreInfo4Content4"></span>
                                 </p>
                             </li>
-                            <li class = "pb-4">
+                            <li class="pb-4">
                                 <span id="date5" class="date">Saturday</span>
                                 <span class="lnr condition">
 									<span class="temp"><span id="day6Temp"></span><span class="deg">0</span><span
@@ -96,7 +96,7 @@
 								</span>
                                 <p id="moreInfo5" class="h6">
                                     <span class="mr-3 h6" id="moreInfo5Content"></span>Humidity : <span class="h6"
-                                       id="moreInfo5Content5"></span>
+                                                                                                        id="moreInfo5Content5"></span>
                                 </p>
                             </li>
                         </ul>
@@ -105,7 +105,8 @@
             </div>
         </div>
 
-        <div class="col-6 p-0">
+
+        <div class="col-md-6 col-sm-12 p-0">
             <section id="searchBar" class="mt-3">
                 <div>
                     <label class="text-light h5" for="userSearch">Search Address:</label>
@@ -216,7 +217,7 @@
             for (var i = 2; i < 6; i++) {
                 var unix = (data.daily[i].dt) * 1000
                 var unixDate = new Date(unix)
-                $("#date"+[i]).html(dayInput(unixDate.getDay()));
+                $("#date" + [i]).html(dayInput(unixDate.getDay()));
             }
         })
 
@@ -229,8 +230,9 @@
             container: 'map',
             style: 'mapbox://styles/mapbox/streets-v11',
             center: start,
-            zoom: 12
+            zoom: 12,
         });
+
 
 //---------------------CHANGING DATES IN WEATHER WIDGET--------------------
 
@@ -270,11 +272,14 @@
             geocode(userInput.value, MAPBOX_TOKEN)
                 .then(function (result) {
                     console.log(result);
-                    var userMarker = new mapboxgl.Marker()
+                    var userMarker = new mapboxgl.Marker({
+                        draggable: true
+                    })
                         .setLngLat(result)
                         .addTo(map)
                     map.setCenter(result);
-                    map.setZoom(14);
+                    map.setZoom(14)
+
 
 //---------------------------UPDATE FOR NEW ADDRESS----------------------
 
