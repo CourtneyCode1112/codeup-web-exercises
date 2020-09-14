@@ -21,6 +21,9 @@
 </head>
 <body>
 
+<div id="hiddenCodeup">
+    <img id="codeupPicture" src="Img/IOclass.jpg"></div>
+
 <div class="container mx-auto">
     <div class="row">
         <div class="col-md-6 col-sm-12">
@@ -159,6 +162,7 @@
         $("#date5").click(function () {
             $("#moreInfo5").slideToggle();
         });
+        $("#hiddenCodeup").hide()
 
 //---------------- START CURRENT WEATHER ON PAGE OPEN-------------
 
@@ -317,7 +321,15 @@
 
                         updateWeatherPicforSearch()
                     })
-
+//-----------------------------CODEUP EASTER EGG-------------------------------
+                        function codeupPic() {
+                            var audioCheer = new Audio('audio/fireworkscheer.mp3')
+                            if (userInput.value === "codeup") {
+                                $("#hiddenCodeup").fadeIn(1000).delay(4000).fadeOut(2000)
+                                audioCheer.play()
+                            }
+                        }
+                        codeupPic()
 //-----------------------------UPDATE 5 DAY FORECAST-------------------------------
 
                     $.get("https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&exclude=hourly,minutely&appid=" + OPENWEATHERMAP_API_KEY + "&units=imperial").done(function (data) {

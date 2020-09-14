@@ -1,8 +1,24 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800,900");
 @import url("https://cdn.linearicons.com/free/1.0.0/icon-font.min.css");
+
 body {
     font-family: 'Montserrat', sans-serif;
     background: #112233;
+    position: relative;
+}
+
+#hiddenCodeup {
+    position: absolute;
+    z-index: 1000;
+    margin-left: 24%;
+    margin-top: 15%;
+    width: 900px;
+    height: 900px;
+}
+
+#codeupPicture {
+    width: 700px;
+    length: 700px;
 }
 
 .weather-card {
