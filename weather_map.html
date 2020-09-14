@@ -185,7 +185,6 @@
                     $(".weather-card .top").css("background-image", "url(Img/sunnyWeather.jpg");
                 } else if ((data.weather[0].main) === "Clouds") {
                     $(".weather-card .top").css("background-image", "url(Img/overcastWeather.jpg");
-                    console.log("Yes")
                 } else if ((data.weather[0].main) === "Snow") {
                     $(".weather-card .top").css("background-image", "url(Img/snowingWeather.jpg");
                 }
@@ -271,7 +270,6 @@
             var userInput = document.getElementById('userSearch')
             geocode(userInput.value, MAPBOX_TOKEN)
                 .then(function (result) {
-                    console.log(result);
                     var userMarker = new mapboxgl.Marker({
                         draggable: true
                     })
@@ -284,7 +282,6 @@
                         var lngLat = userMarker.getLngLat().toArray();
                         var userLng = lngLat[0]
                         var userLat = lngLat[1]
-                        console.log(lngLat);
                         reverseGeocode({lng: userLng, lat: userLat}, MAPBOX_TOKEN).then(function (results) {
                             $("#userSearch").val(results)
                         });
@@ -297,7 +294,6 @@
                     var lon = result[0]
                     var lat = result[1]
                     $.get("https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&appid=" + OPENWEATHERMAP_API_KEY + "&units=imperial").done(function (data) {
-                        console.log(data);
                         $(".temp-value").html(data.main.temp)
                         $(".location").html(data.name)
                         $(".heading").html(data.weather[0].description)
