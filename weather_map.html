@@ -280,6 +280,17 @@
                     map.setCenter(result);
                     map.setZoom(14)
 
+                    function onDragEnd() {
+                        var lngLat = userMarker.getLngLat().toArray();
+                        var userLng = lngLat[0]
+                        var userLat = lngLat[1]
+                        console.log(lngLat);
+                        reverseGeocode({lng: userLng, lat: userLat}, MAPBOX_TOKEN).then(function (results) {
+                            $("#userSearch").val(results)
+                        });
+                    }
+                    userMarker.on('dragend', onDragEnd);
+
 
 //---------------------------UPDATE FOR NEW ADDRESS----------------------
 
