@@ -1,65 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>PushUp Exercises</title>
-</head>
-<body>
-
-
-<script src="js/pushUps.js"></script>
-#screenContainer {
-border: 2px solid red;
-border-radius: 10px;
-width: 785px;
-height: 450px;
-position: absolute;
-top: 6%;
-left: 21%;
-}
-//
-// var getAspectRatio = function () {
-//     $(window).load(function () {
-//         var currentWidth = $(this).width()
-//         console.log(currentWidth)
-//         var currentHeight = $(this).height()
-//         console.log(currentHeight)
-//         var screenCurrentWidth = $("#screenContainer").width()
-//         console.log("screen: " + screenCurrentWidth)
-//         var screenCurrentHeight = $("#screenContainer").height()
-//         console.log("screen: " + screenCurrentHeight)
-//
-//         var aspectRatio = screenCurrentWidth / screenCurrentHeight
-//         // var aspectRatioHeight = currentHeight / screenCurrentHeight
-//
-//         console.log(aspectRatio);
-//
-//
-//         $(window).resize( function () {
-//             var newHeight = Math.round(screenCurrentWidth / aspectRatio)
-//             $("#screenContainer").css("height", newHeight + 'px')
-//             console.log(newHeight)
-//
-//             var newWidth = Math.round(newHeight * aspectRatio)
-//             $("#screenContainer").css("width", newWidth + 'px')
-//             console.log(newWidth)
-//         })
-//
-//
-//     })
-// }
-//
-// getAspectRatio()
-
-
-
-// $(window).resize(function () {
-//     console.log();
-//     // var newWidth = $("#very-specific-design").width() * getAspectRatio()
-//     // console.log("new: " + newWidth);
-// })
-
-
 // var $el = $("#very-specific-design");
 // var elHeight = $el.outerHeight();
 // var elWidth = $el.outerWidth();
@@ -80,9 +18,11 @@ left: 21%;
 //     );
 //
 //     $el.css({
-//
 //         transform: "translate(-50%, -50%) " + "scale(" + scale + ")"
 //     });
+//     console.log($el.css({
+//         transform: "translate(-50%, -50%) " + "scale(" + scale + ")"
+//     }));
 //
 // }
 //
@@ -93,8 +33,8 @@ left: 21%;
 //     }
 // }
 // doResize(null, starterData);
-//
-//
+
+
 // (function( $ ) {
 //     $.fn.keepRatio = function(which) {
 //         var $this = $(this);
@@ -118,7 +58,7 @@ left: 21%;
 // })( jQuery );
 //
 // $(document).ready(function(){
-//     $('#very-specific-design').keepRatio('height' & 'width');
+//     $('#very-specific-design').keepRatio('width');
 // });
 
 // $(window).resize(function () {
@@ -134,5 +74,37 @@ left: 21%;
 //     $this.css('width', nw + 'px');
 //
 // })
-</body>
-</html>
+
+var getAspectRatio = function () {
+    $(window).load(function () {
+        var currentWidth = $(this).width()
+        console.log(currentWidth)
+        var currentHeight = $(this).height()
+        console.log(currentHeight)
+        var screenCurrentWidth = $("#very-specific-design").width()
+        console.log("screen: " + screenCurrentWidth)
+        var screenCurrentHeight = $("#very-specific-design").height()
+        console.log("screen: " + screenCurrentHeight)
+
+        var aspectRatio = screenCurrentWidth / screenCurrentHeight
+        // var aspectRatioHeight = currentHeight / screenCurrentHeight
+
+        console.log(aspectRatio);
+
+
+        $(window).resize( function () {
+            var newHeight = Math.round(screenCurrentHeight * aspectRatio)
+            $("#very-specific-design").css("height", newHeight + 'px')
+            console.log(newHeight)
+
+            var newWidth = Math.round(screenCurrentWidth * aspectRatio)
+            $("#very-specific-design").css("width", newWidth + 'px')
+            console.log(newWidth)
+        })
+
+
+    })
+}
+
+getAspectRatio()
+
