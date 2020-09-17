@@ -61,8 +61,8 @@ let names = [];
 //   return names.push(user.name);
 // });
 
-users.forEach(({email}) => emails.push(email))
-users.forEach(({name}) => names.push(name))
+users.forEach(user => emails.push(user.email));
+users.forEach(user => names.push(user.name))
 console.log(emails)
 console.log(names)
 
