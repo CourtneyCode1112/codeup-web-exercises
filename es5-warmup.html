@@ -12,17 +12,23 @@
     <div>sAlLY</div>
 </main>
 
+<button id ="button" type="button">Change</button>
+
 <script>
     var names = {lName: "smith"};
     var x = document.getElementsByTagName("div")
     console.log(x);
     var arrayNames = []
+    var buttonChange = document.getElementById('button')
 
+    var changeF = function () {
     for (var i = 0; i < x.length; i++) {
         arrayNames.push(x[i].innerHTML.toLowerCase())
         x[i].innerHTML = arrayNames[i].charAt(0).toUpperCase()+ arrayNames[i].slice(1, arrayNames[i].length) + " " + names.lName.charAt(0).toUpperCase() + names.lName.slice(1)
         console.log(arrayNames);
     }
+    }
+    buttonChange.addEventListener("click", changeF)
 
 
 
