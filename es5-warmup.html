@@ -30,13 +30,21 @@
     // }
     // buttonChange.addEventListener("click", changeF)
 
-    buttonChange.addEventListener("click", function () {
-        for (var i = 0; i < x.length; i++) {
-            arrayNames.push(x[i].innerHTML.toLowerCase())
-            x[i].innerHTML = arrayNames[i].charAt(0).toUpperCase()+ arrayNames[i].slice(1, arrayNames[i].length) + " " + names.lName.charAt(0).toUpperCase() + names.lName.slice(1)
-            console.log(arrayNames);
+    // buttonChange.addEventListener("click", function () {
+    //     for (var i = 0; i < x.length; i++) {
+    //         arrayNames.push(x[i].innerHTML.toLowerCase())
+    //         x[i].innerHTML = arrayNames[i].charAt(0).toUpperCase()+ arrayNames[i].slice(1, arrayNames[i].length) + " " + names.lName.charAt(0).toUpperCase() + names.lName.slice(1)
+    //         console.log(arrayNames);
+    //     }
+    // })
+
+
+    function toLowerCap() {
+        for (let element of x) {
+            element.innerHTML = `${objectLower(element.textContent.toLowerCase())} ${objectLower(last.lName)}`
         }
-    })
+    }
+    toLowerCap()
 
 
 
