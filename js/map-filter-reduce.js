@@ -73,8 +73,10 @@ console.log(instructors);
 // console.log(uniqueLanguages);
 
 let langs = users.reduce((accum, {languages }) => accum += languages + ',', "").split(',').slice(0,-1)
-let userUniqueLanguages = new Set(langs)
-console.dir(langs)
-console.dir(userUniqueLanguages)
+let userUniqueLanguages1 = new Set(langs)
+let userUniqueLanguages2 = langs.filter((x, i, a) => a.indexOf(x) === i)
+
+console.dir(userUniqueLanguages1)
+console.dir(userUniqueLanguages2)
 
 
