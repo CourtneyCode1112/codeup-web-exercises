@@ -164,6 +164,53 @@
     //     .reduce((greeting, name) => greeting += `${name}, `, 'Welcome: ').slice(0, -2);
     // console.log(output);
 
+    // // TODO: Given the following array, complete the todos...
+    //
+    // const dogs = [
+    //     {
+    //         name: 'bubbles',
+    //         age: 10,
+    //         isTrained: false
+    //     },
+    //     {
+    //         name: 'lexie',
+    //         age: 3,
+    //         isTrained: true
+    //     },
+    //     {
+    //         name: 'doggy',
+    //         age: 5,
+    //         isTrained: false
+    //     }
+    // ];
+
+    // TODO: using map, create a new array of dog names from the dogs array
+    // const convertToTitleCase = str => str[0].toUpperCase() + str.substring(1).toLowerCase();
+    // const output = names.map(convertToTitleCase);
+
+    // const mapMethodOutput = arr.map(function(element) {
+    //     return element + 1;
+    // });
+    //
+
+    // const dogNames = dogs.map(function(dogName) {
+    //     return dogName.name
+    // })
+    // console.log(dogNames);
+
+    // const dogNames = dogs.map(({ name }) => name)
+    // console.log(dogNames);
+    //
+    // // TODO: using map, create a new array of dog ages from the dogs array
+    //
+    // const dogAges = dogs.map(({ age }) => age)
+    // console.log(dogAges);
+    //
+    // // TODO: using map, create a new array of dog objects from the dogs array that only have name and age property values
+    //
+    // const dogNamesAges = dogs.map(({ name, age }) => ({ name, age}))
+    // console.log(dogNamesAges);
+
     // TODO: Given the following array, complete the todos...
 
     const dogs = [
@@ -184,33 +231,20 @@
         }
     ];
 
-    // TODO: using map, create a new array of dog names from the dogs array
-    // const convertToTitleCase = str => str[0].toUpperCase() + str.substring(1).toLowerCase();
-    // const output = names.map(convertToTitleCase);
+    // TODO: using filter, create a new array containing only dogs younger than 10 years old
 
-    // const mapMethodOutput = arr.map(function(element) {
-    //     return element + 1;
-    // });
-    //
+    const youngDogs = dogs.filter(youngDog => youngDog.age < 10)
+    console.log(youngDogs);
 
-    // const dogNames = dogs.map(function(dogName) {
-    //     return dogName.name
-    // })
-    // console.log(dogNames);
+    // TODO: using filter, create a new array containing only dogs named 'lexie'
 
-    const dogNames = dogs.map(({ name }) => name)
-    console.log(dogNames);
+    const lexieDogs = dogs.filter(lexie => lexie.name === "lexie")
+    console.log(lexieDogs);
 
-    // TODO: using map, create a new array of dog ages from the dogs array
+    // TODO: using filter, create a new array containing only dogs that are trained and younger than 10
 
-    const dogAges = dogs.map(({ age }) => age)
-    console.log(dogAges);
-
-    // TODO: using map, create a new array of dog objects from the dogs array that only have name and age property values
-
-    const dogNamesAges = dogs.map(({ name, age }) => ({ name, age}))
-    console.log(dogNamesAges);
-
+    const trainedYoungDogs = dogs.filter(trainedYoungDog => trainedYoungDog.isTrained === true && trainedYoungDog.age < 10)
+    console.log(trainedYoungDogs);
 
 </script>
 
