@@ -120,6 +120,98 @@
 
     })();
 
+
+    // ================================= Map, Filter, Reduce
+    //
+    // -- Array.map()
+    //
+    // Great creating a new array with changed values.
+    //
+    //     Example:
+    //
+    // const names = ['justin', 'ViVIAN', 'boB', 'DANIEL', 'tRant'];
+    // const convertToTitleCase = str => str[0].toUpperCase() + str.substring(1).toLowerCase();
+    // const output = names.map(convertToTitleCase);
+    // console.log(output); // ['Justin', Vivian', 'Bob', 'Daniel', 'Trant'];
+    //
+    //
+    // -- Array.filter()
+
+    // Great for removing elements in an array that fail a given test.
+    //
+    //     Example:
+    //
+    // const names = ['Justin', 'Vivian', 'Bob', 'Daniel', 'Trant'];
+    // const output = names.filter(name => name !== 'Bob'); // filter out 'Bob'
+    // console.log(output); // ['Justin', 'Vivian', 'Daniel', 'Trant']
+    //
+    // -- Array.reduce()
+    //
+    // Great for combining the values of an array together in some way to create data of any type.
+    //
+    //     Example 1:
+    //
+    // const names = ['Justin', 'Vivian', 'Daniel', 'Trant'];
+    // const output = names.reduce((greeting, name) => greeting += `${name}, `, 'Welcome: ').slice(0, -2);
+    // console.log(output); // "Welcome Justin, Vivian, Daniel, Trant"
+    //
+    // -- ULTRA COMBO!!!!!
+    //
+    // const names = ['justin', 'ViVIAN', 'boB', 'DANIEL', 'tRant'];
+    // const convertToTitleCase = str => str[0].toUpperCase() + str.substring(1).toLowerCase();
+    // const output = names.map(convertToTitleCase)
+    //     .filter(name => name !== 'Bob')
+    //     .reduce((greeting, name) => greeting += `${name}, `, 'Welcome: ').slice(0, -2);
+    // console.log(output);
+
+    // TODO: Given the following array, complete the todos...
+
+    const dogs = [
+        {
+            name: 'bubbles',
+            age: 10,
+            isTrained: false
+        },
+        {
+            name: 'lexie',
+            age: 3,
+            isTrained: true
+        },
+        {
+            name: 'doggy',
+            age: 5,
+            isTrained: false
+        }
+    ];
+
+    // TODO: using map, create a new array of dog names from the dogs array
+    // const convertToTitleCase = str => str[0].toUpperCase() + str.substring(1).toLowerCase();
+    // const output = names.map(convertToTitleCase);
+
+    // const mapMethodOutput = arr.map(function(element) {
+    //     return element + 1;
+    // });
+    //
+
+    // const dogNames = dogs.map(function(dogName) {
+    //     return dogName.name
+    // })
+    // console.log(dogNames);
+
+    const dogNames = dogs.map(({ name }) => name)
+    console.log(dogNames);
+
+    // TODO: using map, create a new array of dog ages from the dogs array
+
+    const dogAges = dogs.map(({ age }) => age)
+    console.log(dogAges);
+
+    // TODO: using map, create a new array of dog objects from the dogs array that only have name and age property values
+
+    const dogNamesAges = dogs.map(({ name, age }) => ({ name, age}))
+    console.log(dogNamesAges);
+
+
 </script>
 
 </body>
