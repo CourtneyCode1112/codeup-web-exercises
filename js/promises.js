@@ -10,7 +10,7 @@ function wait(num) {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             if (resolve) {
-                return resolve(num);
+                return resolve(`You'll see this after ${num} ms`);
             } else {
                 return reject('Network Connection Error!');
             }
@@ -20,5 +20,5 @@ function wait(num) {
 
 console.log(wait()); // pending promise
 
-wait(1000).then((num) => console.log(`You\'ll see this after ${num} ms`));
-wait(3000).then((num) => console.log(`You\'ll see this after ${num} ms`));
+wait(1000).then((num) => console.log(num))
+wait(3000).then((num) => console.log(num))
