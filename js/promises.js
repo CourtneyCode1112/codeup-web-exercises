@@ -13,13 +13,14 @@ let getLastCommit = (username) => {
         .then(response => response.json())
         .then(events => events.filter(event => event.type === "PushEvent"))
         .then(pushEvent => console.log(pushEvent[0].created_at))
+        .catch(err => console.log(err))
 }
 
 getLastCommit("coryholley")
 
 
 
-function wait(num) {
+const wait = (num) => {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             if (resolve) {
