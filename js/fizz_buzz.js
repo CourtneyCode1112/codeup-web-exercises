@@ -36,14 +36,27 @@
 //
 // fizzBuzzGame(80)
 
-fetch("https://api.github.com/users")
+let gitHubFetch = fetch("https://api.github.com/users")
     .then(response => response.json())
     .then(result => {
-        result.forEach(user => console.log(user))
+        result.forEach(user => {
+            console.log(user)
+            return user
+        })
+        return result
     })
     .catch(error => console.log(error))
 
-fetch("https://swapi.dev/api/people/1/")
-    .then(response => response.json())
-    .then(data => console.log(data))
+let starFetch = fetch("https://swapi.dev/api/people/1/")
+    .then(response => {
+        console.log(response)
+        return response.json()
+    })
+    .then(data => {
+        console.log(data)
+        return data
+    })
     .catch(error => console.log(error))
+
+Promise.all([starFetch,gitHubFetch])
+.then(result => console.log(result))
