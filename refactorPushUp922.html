@@ -45,18 +45,26 @@
     //
     // console.log(getFullNames(users));
 
-    const getFullNames = (users) => {
-        let output = []
-        for (let user of users) {
-           output.push([`name: ${user.firstName} ${user.lastName}`])
-        } return output
-    }
-
-    console.log(getFullNames(users))
+    // const getFullNames = (users) => {
+    //     let output = []
+    //     for (let user of users) {
+    //        output.push([`name: ${user.firstName} ${user.lastName}`])
+    //     } return output
+    // }
+    //
+    // console.log(getFullNames(users))
 
     // const getFullNames = users => users.reduce((accum, { firstName, lastName }) => [...accum, {name: `${firstName} ${lastName}`}], []);
     //
     // console.log(getFullNames(users))
+
+    const apiURL = "https://youthful-wool-check.glitch.me/dogs"
+
+    const getDogs = () => fetch(apiURL)
+    .then(res => res.json())
+    .then(console.log)
+
+    getDogs()
 
 
 </script>
