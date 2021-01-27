@@ -19,3 +19,11 @@ let tileTeamworkGame = function(p1, p2) {
 }
 
 console.log(tileTeamworkGame(3,7));
+
+// Create a function to return the amount of potatoes there are in a string.
+
+let potato = function(string) {
+    // let potato = "potato";
+    console.log(string.split("potato").length - 1);}
+
+potato("potatoasdfpotatoasdpotato");
