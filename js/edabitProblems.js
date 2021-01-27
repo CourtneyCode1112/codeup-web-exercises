@@ -9,3 +9,13 @@ let addAllNumbers = function (num) {
 }
 
 console.log(addAllNumbers(4))
+
+// In a board game, a piece may advance 1-6 tiles forward depending on the number rolled on a six-sided dice. If you advance your piece onto the same tile as another player's piece, both of you earn a bonus.
+//
+// Given you and your friend's tile number, create a function that returns if it's possible to earn a bonus when you roll the dice.
+
+let tileTeamworkGame = function(p1, p2) {
+        return p1 + 1 <= p2 && p2 <= p1 + 6;
+}
+
+console.log(tileTeamworkGame(3,7));
