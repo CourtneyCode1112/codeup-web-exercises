@@ -51,3 +51,11 @@ let isTrue = function (string) {
 }
 
 isTrue("15<31");
+
+// There is a single operator in JavaScript, capable of providing the remainder of a division operation. Two numbers are passed as parameters. The first parameter divided by the second parameter will have a remainder, possibly zero. Return that value.
+
+let remainder = function(num1,num2) {
+    console.log(num1 % num2);
+}
+
+remainder(6,5)
