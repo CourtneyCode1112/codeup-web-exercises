@@ -14,16 +14,40 @@ console.log(addAllNumbers(4))
 //
 // Given you and your friend's tile number, create a function that returns if it's possible to earn a bonus when you roll the dice.
 
-let tileTeamworkGame = function(p1, p2) {
-        return p1 + 1 <= p2 && p2 <= p1 + 6;
+let tileTeamworkGame = function (p1, p2) {
+    return p1 + 1 <= p2 && p2 <= p1 + 6;
 }
 
-console.log(tileTeamworkGame(3,7));
+console.log(tileTeamworkGame(3, 7));
 
 // Create a function to return the amount of potatoes there are in a string.
 
-let potato = function(string) {
+let potato = function (string) {
     // let potato = "potato";
-    console.log(string.split("potato").length - 1);}
+    console.log(string.split("potato").length - 1);
+}
 
 potato("potatoasdfpotatoasdpotato");
+
+// In this challenge you will be given a relation between two numbers, written as a string. Write a function that determines if the relation is true or false.
+
+let isTrue = function (string) {
+    let stringArray = string.split("");
+    let firstNum = "";
+    let operator = "";
+    let secondNum = "";
+    for (let i = 0; i < stringArray.length - 1; i++) {
+        if(stringArray[i] === ("<" || ">" || "=")) {
+            operator = stringArray[i];
+            console.log(operator);
+            firstNum = stringArray.slice(0, stringArray[i+1] -1).join("");
+            console.log(firstNum);
+            secondNum = stringArray.slice(stringArray[i+1], stringArray.length).join("");
+            console.log(secondNum);
+        }
+    }
+    console.log(stringArray);
+    console.log(eval(string.replace('=', '===')));
+}
+
+isTrue("15<31");
